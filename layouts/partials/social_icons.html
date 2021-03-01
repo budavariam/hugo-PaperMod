@@ -1,6 +1,6 @@
 <div class="social-icons">
     {{- range . -}}
-    <a href="{{ trim .url " " }}" target="_blank" rel="noopener noreferrer me"
-        title="{{ .name | humanize }}">{{ partial "svg.html" . }}</a>
+    <a href="{{ trim .value " " }}" target="_blank" rel="noopener noreferrer me"
+        title="{{ .name | humanize }}">{{ partial "svg_circle.html" . }}</a>
     {{- end -}}
 </div>
