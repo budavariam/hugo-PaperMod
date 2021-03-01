@@ -3,9 +3,11 @@
     <header class="entry-header">
         <h1>{{- .Title | markdownify }}</h1>
     </header>
+    {{- if .Content }}
     <section class="entry-content">
         <p>{{- .Content | markdownify }}</p>
     </section>
+    {{- end }}
     <footer class="entry-footer">
         {{- partial "social_icons.html" $.Site.Params.socialIcons -}}
     </footer>
