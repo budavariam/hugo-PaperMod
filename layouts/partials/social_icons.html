@@ -1,28 +1,30 @@
 <div class="social-icons">
-    {{ $scratch := newScratch}}
+    {{ $social_prefix := newScratch}}
+    {{ $social_postfix := newScratch}}
 
-    {{ $scratch.Add "dribbble" "https://dribbble.com/" }}
-    {{ $scratch.Add "email" "mailto:" }}
-    {{ $scratch.Add "gmail" "mailto:" }}
-    {{ $scratch.Add "flickr" "https://www.flickr.com/" }}
-    {{ $scratch.Add "github" "https://github.com/" }}
-    {{ $scratch.Add "gitlab" "https://gitlab.com/" }}
-    {{ $scratch.Add "linkedin" "https://www.linkedin.com/in/" }}
-    {{ $scratch.Add "codefights" "https://codefights.com/profile/" }}
-    {{ $scratch.Add "stackoverflow" "http://stackoverflow.com/" }}
-    {{ $scratch.Add "pinterest" "https://www.pinterest.com/" }}
-    {{ $scratch.Add "rss" "/index.xml" }}
-    {{ $scratch.Add "strava" "https://www.strava.com/athletes/" }}
-    {{ $scratch.Add "duolingo" "https://www.duolingo.com/profile/" }}
-    {{ $scratch.Add "instagram" "https://instagram.com/" }}
-    {{ $scratch.Add "twitter" "https://www.twitter.com/" }}
-    {{ $scratch.Add "tumblr" "https://" }}
-    {{ $scratch.Add "facebook" "https://www.facebook.com/" }}
-    {{ $scratch.Add "youtube" "https://youtube.com/" }}
-    {{ $scratch.Add "googleplus" "https://plus.google.com/" }}
+    {{ $social_prefix.Add "dribbble" "https://dribbble.com/" }}
+    {{ $social_prefix.Add "email" "mailto:" }}
+    {{ $social_prefix.Add "gmail" "mailto:" }}
+    {{ $social_prefix.Add "flickr" "https://www.flickr.com/" }}
+    {{ $social_prefix.Add "github" "https://github.com/" }}
+    {{ $social_prefix.Add "gitlab" "https://gitlab.com/" }}
+    {{ $social_prefix.Add "linkedin" "https://www.linkedin.com/in/" }}
+    {{ $social_prefix.Add "codefights" "https://codefights.com/profile/" }}
+    {{ $social_prefix.Add "stackoverflow" "http://stackoverflow.com/" }}
+    {{ $social_prefix.Add "pinterest" "https://www.pinterest.com/" }}
+    {{ $social_prefix.Add "rss" "/index.xml#" }}
+    {{ $social_prefix.Add "strava" "https://www.strava.com/athletes/" }}
+    {{ $social_prefix.Add "duolingo" "https://www.duolingo.com/profile/" }}
+    {{ $social_prefix.Add "instagram" "https://instagram.com/" }}
+    {{ $social_prefix.Add "twitter" "https://www.twitter.com/" }}
+    {{ $social_prefix.Add "tumblr" "https://" }}
+    {{ $social_postfix.Add "tumblr" ".tumblr.com" }}
+    {{ $social_prefix.Add "facebook" "https://www.facebook.com/" }}
+    {{ $social_prefix.Add "youtube" "https://youtube.com/" }}
+    {{ $social_prefix.Add "googleplus" "https://plus.google.com/" }}
 
     {{- range . -}}
-    <a href="{{ $scratch.Get .name }}{{ .value}}" target="_blank" rel="noopener noreferrer me"
+    <a href="{{ $social_prefix.Get .name }}{{ .value }}{{ $social_postfix.Get .name }}" target="_blank" rel="noopener noreferrer me"
         title="{{ .name | humanize }}">{{ partial "svg_circle.html" . }}</a>
     {{- end -}}
 </div>
