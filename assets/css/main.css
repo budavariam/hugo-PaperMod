@@ -40,6 +40,10 @@
     width: 35px
 }
 
+.post-content .social-icons a {
+    box-shadow: none;
+}
+
 code {
     direction: ltr
 }
