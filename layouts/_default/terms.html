@@ -11,14 +11,26 @@
 </header>
 {{- end }}
 
-<ul class="terms-tags">
+{{- $max := 0 }}
+{{- range $key, $value := .Data.Terms }}
+    {{- $max = cond (ge .Count $max  ) .Count $max }}
+{{- end }}
+
+{{- $intervalMin := 1.0 }}
+{{- $intervalMax := $max }}
+{{- $resultMin := math.Log 1.0 }}
+{{- $resultMax := math.Log $max }}
+
+<ul class="terms-tags" style="--terms-tag-max: {{ $max }}">
     {{- $type := .Type }}
     {{- range $key, $value := .Data.Terms.Alphabetical }}
     {{- $name := .Name }}
     {{- $count := .Count }}
+    <!-- calc log scale from the given value. in other words remap the same scale between 1 and the max count value in a log scale, so small changes in lower values are more visible -->
+    {{- $logcount := (add (div (sub (math.Log $count) $resultMin) (div (sub $resultMax $resultMin) (sub $intervalMax $intervalMin))) $intervalMin) }}
     {{- with $.Site.GetPage (printf "/%s/%s" $type $name) }}
     <li>
-        <a href="{{ .Permalink }}">{{ .Name }} <sup><strong><sup>{{ $count }}</sup></strong></sup> </a>
+        <a href="{{ .Permalink }}" style="--terms-tag-scale: {{ $logcount }}">{{ .Name }} <sup><strong><sup>{{ $count }}</sup></strong></sup> </a>
     </li>
     {{- end }}
     {{- end }}
