@@ -28,7 +28,11 @@
 }
 
 .social-icons {
-    padding: 12px 0
+    padding: 12px 0;
+}
+
+.dark .social-icons {
+    filter: brightness(0.6);
 }
 
 .social-icons a:not(:last-of-type) {
