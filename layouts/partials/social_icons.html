@@ -1,6 +1,28 @@
 <div class="social-icons">
+    {{ $scratch := newScratch}}
+
+    {{ $scratch.Add "dribbble" "https://dribbble.com/" }}
+    {{ $scratch.Add "email" "mailto:" }}
+    {{ $scratch.Add "gmail" "mailto:" }}
+    {{ $scratch.Add "flickr" "https://www.flickr.com/" }}
+    {{ $scratch.Add "github" "https://github.com/" }}
+    {{ $scratch.Add "gitlab" "https://gitlab.com/" }}
+    {{ $scratch.Add "linkedin" "https://www.linkedin.com/in/" }}
+    {{ $scratch.Add "codefights" "https://codefights.com/profile/" }}
+    {{ $scratch.Add "stackoverflow" "http://stackoverflow.com/" }}
+    {{ $scratch.Add "pinterest" "https://www.pinterest.com/" }}
+    {{ $scratch.Add "rss" "/index.xml" }}
+    {{ $scratch.Add "strava" "https://www.strava.com/athletes/" }}
+    {{ $scratch.Add "duolingo" "https://www.duolingo.com/profile/" }}
+    {{ $scratch.Add "instagram" "https://instagram.com/" }}
+    {{ $scratch.Add "twitter" "https://www.twitter.com/" }}
+    {{ $scratch.Add "tumblr" "https://" }}
+    {{ $scratch.Add "facebook" "https://www.facebook.com/" }}
+    {{ $scratch.Add "youtube" "https://youtube.com/" }}
+    {{ $scratch.Add "googleplus" "https://plus.google.com/" }}
+
     {{- range . -}}
-    <a href="{{ trim .value " " }}" target="_blank" rel="noopener noreferrer me"
+    <a href="{{ $scratch.Get .name }}{{ .value}}" target="_blank" rel="noopener noreferrer me"
         title="{{ .name | humanize }}">{{ partial "svg_circle.html" . }}</a>
     {{- end -}}
 </div>
