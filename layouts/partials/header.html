@@ -54,7 +54,9 @@
             <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ .Site.Params.label.text | default .Site.Title }} (Alt + H)" class="site-avatar">
                 {{- if .Site.Params.label.icon }}
                 <img src="{{- .Site.Params.label.icon -}}" alt="logo" aria-label="logo"
-                height="{{- .Site.Params.label.iconHeight | default "30px" -}}">
+                height="{{- .Site.Params.label.iconHeight | default "30px" -}}"
+                width="{{- .Site.Params.label.iconWidth | default "30px" -}}"
+                >
                 {{- end -}}
             </a>
             <div class="site-info">
