@@ -41,7 +41,7 @@
 
 .site-description {
     margin: 0;
-    color: #666;
+    color: var(--secondary);
     font-size: 16px;
     line-height: 1;
 }

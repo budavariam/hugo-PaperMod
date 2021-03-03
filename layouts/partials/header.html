@@ -51,7 +51,7 @@
     <nav class="nav">
         <div class="logo">
             {{- if .Title }}
-            <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ .Site.Params.label.text | default .Site.Title }} (Alt + H)" class="site-avatar">
+            <a href="{{ "" | absLangURL }}" title="{{ .Site.Params.label.text | default .Site.Title }} (Alt + H)" class="site-avatar">
                 {{- if .Site.Params.label.icon }}
                 <img src="{{- .Site.Params.label.icon -}}" alt="logo" aria-label="logo"
                 height="{{- .Site.Params.label.iconHeight | default "30px" -}}"
