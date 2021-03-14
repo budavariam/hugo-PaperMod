@@ -52,3 +52,14 @@
 code {
     direction: ltr
 }
+
+/* Use my theme colors for embedded gist, to look better in dark mode */
+.gist.gist {
+    color: var(--primary);
+}
+.gist.gist .gist-data {
+    background-color: var(--theme);
+}
+.gist.gist .markdown-body blockquote {
+    color: var(--secondary);
+}
