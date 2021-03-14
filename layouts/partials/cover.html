@@ -28,7 +28,23 @@
     {{- if $addLink }}</a>{{ end -}}
     {{/*  Display Caption  */}}
     {{- if not $.IsHome }}
-        {{ with .Params.cover.caption }}<p>{{ . | markdownify }}</p>{{- end }}
+        {{ with .Params.cover }}
+        {{- if or (or (.Get "title") (.Get "caption") (.Get "attr")) -}}
+            <figcaption>
+                {{ with (.Get "title") -}}
+                    {{ . }}
+                {{- end -}}
+                {{- if (.Get "attr") -}}
+                <p>
+                    {{- with .Get "caption" }}{{ . | markdownify }}{{- end }}
+                    {{- with .Get "attrlink" }}<a href="{{ . }}">{{- end -}}
+                    {{- .Get "attr" | markdownify -}}
+                    {{- if .Get "attrlink" }}</a>{{ end }}
+                </p>
+                {{- end }}
+            </figcaption>
+        {{- end }}
+        {{- end }}
     {{- end }}
 </figure>
 {{- end }}{{/* End image */}}
