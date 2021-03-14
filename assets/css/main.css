@@ -63,3 +63,7 @@ code {
 .gist.gist .markdown-body blockquote {
     color: var(--secondary);
 }
+.gist.gist .markdown-body code,
+.gist.gist .markdown-body tt {
+    background-color: var(--code-bg)
+}
