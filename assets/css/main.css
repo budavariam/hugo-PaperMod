@@ -82,3 +82,9 @@ code {
     color: var(--secondary) !important;
     background: var(--code-bg) !important;
 }
+
+#disqus_thread {
+    background-color: var(--code-bg);
+    border-radius: var(--radius);
+    padding: 12px; /* same as it convertkit */
+}
