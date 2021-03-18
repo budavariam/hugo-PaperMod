@@ -83,6 +83,11 @@ code {
     background: var(--code-bg) !important;
 }
 
+.formkit-form.formkit-form[data-uid="7d9354cde4"] .formkit-button > span, 
+.formkit-form.formkit-form[data-uid="7d9354cde4"] .formkit-submit > span {
+    padding: 12px;
+}
+
 #disqus_thread {
     background-color: var(--code-bg);
     border-radius: var(--radius);
