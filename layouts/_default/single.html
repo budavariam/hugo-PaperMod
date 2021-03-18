@@ -70,13 +70,14 @@
     {{- end }}
   </footer>
 
+  {{- if (.Site.Param "convertkit") }}
+    <script async data-uid="{{ .Site.Params.convertkit.uid}}" src="{{.Site.Params.convertkit.url}}"></script>
+  {{- end }}
+  
   {{- if (.Param "comments") }}
   {{- partial "comments.html" . }}
   {{- end }}
   
-  {{- if (.Site.Param "convertkit") }}
-    <script async data-uid="{{ .Site.Params.convertkit.uid}}" src="{{.Site.Params.convertkit.url}}"></script>
-  {{- end }}
 
 </article>
 
