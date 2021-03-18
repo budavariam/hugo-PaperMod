@@ -67,3 +67,18 @@ code {
 .gist.gist .markdown-body tt {
     background-color: var(--code-bg)
 }
+
+/* my convertkit overrides */
+.formkit-form.formkit-form[data-uid="7d9354cde4"][min-width~="700"] [data-style="clean"], 
+.formkit-form.formkit-form[data-uid="7d9354cde4"][min-width~="800"] [data-style="clean"] {
+    padding: 0;
+}
+
+.formkit-form.formkit-form[data-uid="7d9354cde4"] {
+    margin-top: 20px;
+    max-width: initial;
+}
+.formkit-submit.formkit-submit {
+    color: var(--secondary) !important;
+    background: var(--code-bg) !important;
+}
