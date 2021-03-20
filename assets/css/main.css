@@ -93,3 +93,9 @@ code {
     border-radius: var(--radius);
     padding: 12px; /* same as it convertkit */
 }
+
+.formkit-form.formkit-form[data-uid="7d9354cde4"]::after {
+    content: "Privacy Policy: I'll only use your address to send broadcast messages about my new content.";
+    color: var(--secondary);
+    font-size: x-small;
+}
