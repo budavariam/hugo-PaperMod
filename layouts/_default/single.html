@@ -70,7 +70,7 @@
     {{- end }}
   </footer>
 
-  {{- if (.Site.Param "convertkit") }}
+  {{- if (and .Site.Params "convertkit" (ne .Params.disableConvertkit true) ) }}
     <script async data-uid="{{ .Site.Params.convertkit.uid}}" src="{{.Site.Params.convertkit.url}}"></script>
   {{- end }}
   
