@@ -1,0 +1,4 @@
+{{- if (and .Site.Params "logrocket" (ne .Params.disableLogrocket true) ) }}
+<script src="https://cdn.lr-ingest.io/LogRocket.min.js" crossorigin="anonymous"></script>
+<script>window.LogRocket && window.LogRocket.init('{{.Site.Params.logrocket.id}}/{{.Site.Params.logrocket.name}}');</script>
+{{- end }}
