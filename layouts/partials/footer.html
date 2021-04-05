@@ -9,7 +9,12 @@
     <span>Powered&nbsp;by&nbsp;<a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
     <span>&middot;</span>
     <wbr/>
-    <span>Theme&nbsp;<a href="https://github.com/budavariam/hugo-PaperMod" rel="noopener" target="_blank">PaperMod&nbsp;(custom)</a></span>
+    <span>Theme&nbsp;<a href="https://github.com/budavariam/hugo-PaperMod/tree/budavariam" rel="noopener" target="_blank">PaperMod&nbsp;(custom)</a></span>
+    {{- if not (hugo.IsProduction | or (eq .Site.Params.env "production")) }}
+        <span>&middot;</span>    
+        <wbr/>
+        <span>Development&nbsp;build</span>
+    {{- end}}
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
     <button class="top-link" id="top-link" type="button" accesskey="g">
