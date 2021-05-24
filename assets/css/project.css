@@ -12,6 +12,7 @@
 
 .project-description a {
     text-decoration: underline;
+    font-size: smaller;
 }
 
 .project-source a {
