@@ -1,0 +1,21 @@
+{{ define "main" }}
+
+<header class="page-header">
+    <h1>{{ .Title }}</h1>
+    {{- if .Description }}
+    <div class="post-description">
+      {{ .Description }}
+    </div>
+    {{- end }}
+  </header>
+
+{{ range $.Site.Data.projects.categories }}
+<h2>{{ .name }}</h2>
+<ul class="projects">
+    {{ range .projects }}
+        <li class="project">{{ partial "project.html" . }}</li>
+    {{ end }}
+</ul>
+{{ end }}
+
+{{ end }}{{/* end main */}}
