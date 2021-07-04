@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 320px;
+    min-height: 100px;
     margin: var(--gap) 0 calc(var(--gap) * 2) 0
 }
 
@@ -11,26 +11,26 @@
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3
+    -webkit-line-clamp: 3;
 }
 
 .first-entry .entry-header h1 {
     font-size: 34px;
-    line-height: 1.3
+    line-height: 1.3;
 }
 
-.first-entry .entry-content {
+.first-entry .hg-entry-content {
     margin: 14px 0;
     font-size: 16px;
-    -webkit-line-clamp: 3
+    -webkit-line-clamp: 3;
 }
 
 .first-entry .entry-footer {
     font-size: 14px
 }
 
-.home-info .entry-content {
-    -webkit-line-clamp: unset
+.home-info .hg-entry-content {
+    -webkit-line-clamp: unset;
 }
 
 .post-entry {
@@ -55,7 +55,7 @@
     font-size: 24px
 }
 
-.entry-content {
+.hg-entry-content {
     margin: 8px 0;
     color: var(--secondary);
     font-size: 14px;
@@ -63,7 +63,7 @@
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2
+    -webkit-line-clamp: 20;
 }
 
 .entry-footer {

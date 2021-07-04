@@ -1,0 +1,25 @@
+.projects {
+  list-style-type: none;
+}
+
+.project {
+  margin: 0.5em 0 1em 25px;
+}
+
+.project-description {
+    line-height: 1.3em;
+}
+
+.project-description a {
+    text-decoration: underline;
+    font-size: smaller;
+}
+
+.project-source a {
+  margin-right: 5px;
+}
+
+.project-tech-stack {
+  font-size: small;
+  color: gray;
+}

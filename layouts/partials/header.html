@@ -51,14 +51,41 @@
     <nav class="nav">
         <div class="logo">
             {{- if .Title }}
-            <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ .Site.Params.label.text | default .Site.Title }} (Alt + H)">
+            <a href="{{ "" | absLangURL }}" title="{{ .Site.Params.label.text | default .Site.Title }} (Alt + H)" class="site-avatar">
                 {{- if .Site.Params.label.icon }}
                 <img src="{{- .Site.Params.label.icon -}}" alt="logo" aria-label="logo"
-                    height="{{- .Site.Params.label.iconHeight | default "30px" -}}">
+                height="{{- .Site.Params.label.iconHeight | default "30px" -}}"
+                width="{{- .Site.Params.label.iconWidth | default "30px" -}}"
+                >
                 {{- end -}}
-                {{- .Site.Params.label.text | default .Site.Title -}}
             </a>
+            <div class="site-info">
+                <h1 class="site-name">
+                    <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ .Site.Params.label.text | default .Site.Title }} (Alt + H)">
+                        {{- .Site.Params.label.text | default .Site.Title -}}
+                    </a>
+                </h1>
+                <p class="site-description">Developer from Szeged</p>
+            </div>
             {{- end }}
+        </div>
+        {{- $currentPage := . }}
+        <ul id="menu" onscroll="menu_on_scroll()">
+            {{- range .Site.Menus.main }}
+            {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL) ) | absLangURL }}
+            {{- $page_url:= $currentPage.Permalink  | absLangURL }}
+            {{- $is_search := eq ($.Site.GetPage .KeyName).Layout `search` }}
+            <li>
+                <a href="{{ .URL | absLangURL }}" title="{{ .Title | default .Name }} {{- cond $is_search (" (Alt + /)" | safeHTMLAttr) ("" | safeHTMLAttr ) }}"
+                {{- cond $is_search (" accesskey=/" | safeHTMLAttr) ("" | safeHTMLAttr ) }}>
+                    <span {{- if eq $menu_item_url $page_url }} class="active" {{- end }}>
+                        {{- .Name -}}
+                    </span>
+                </a>
+            </li>
+            {{- end -}}
+
+            <li>
             <span class="logo-switches">
                 {{- if (not .Site.Params.disableThemeToggle) }}
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
@@ -105,22 +132,7 @@
                 </ul>
                 {{- end }}
             </span>
-        </div>
-        {{- $currentPage := . }}
-        <ul id="menu" onscroll="menu_on_scroll()">
-            {{- range .Site.Menus.main }}
-            {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL) ) | absLangURL }}
-            {{- $page_url:= $currentPage.Permalink  | absLangURL }}
-            {{- $is_search := eq ($.Site.GetPage .KeyName).Layout `search` }}
-            <li>
-                <a href="{{ .URL | absLangURL }}" title="{{ .Title | default .Name }} {{- cond $is_search (" (Alt + /)" | safeHTMLAttr) ("" | safeHTMLAttr ) }}"
-                {{- cond $is_search (" accesskey=/" | safeHTMLAttr) ("" | safeHTMLAttr ) }}>
-                    <span {{- if eq $menu_item_url $page_url }} class="active" {{- end }}>
-                        {{- .Name -}}
-                    </span>
-                </a>
             </li>
-            {{- end -}}
         </ul>
     </nav>
 </header>

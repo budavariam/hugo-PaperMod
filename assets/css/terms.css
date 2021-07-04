@@ -9,7 +9,8 @@
     padding: 3px 10px;
     background: var(--tertiary);
     border-radius: 6px;
-    transition: transform .1s
+    transition: transform .1s;
+    filter: contrast(calc(var(--terms-tag-scale, 1)/var(--terms-tag-max, 1)));
 }
 
 .terms-tags a:active {

@@ -1,0 +1,35 @@
+<h3 class="project-title">
+    {{.name}}
+</h3>
+{{ if .description }}
+    <p class="project-description">
+        {{ .description | markdownify }}
+    </p>
+{{ end}}
+<div class="project-source">
+    {{ if .blogpost }}
+        <a href="{{.blogpost}}" aria-label="blogpost" title="View blogpost about it" target="_blank">
+            <i class="fas fa-quote-right"></i>
+        </a>
+    {{ end }}
+    {{ if .demo_site }}
+        <a href="{{.demo_site}}" aria-label="demo page" title="View demo" target="_blank">
+            <i class="fas fa-laptop"></i>
+        </a>
+    {{ end }}
+    {{ if .github }}
+        <a href="{{.github}}" aria-label="github source" title="Source on github" target="_blank">
+            <i class="fab fa-github"></i>
+        </a>
+    {{ end }}
+    {{ if .npm }}
+        <a href="{{.npm}}" aria-label="npm package" title="Package on npm" target="_blank">
+            <i class="fab fa-npm"></i>
+        </a>
+    {{ end }}
+    <span class="project-tech-stack">
+        {{range .tech}}
+            {{.}}
+        {{end}}
+    </span>
+</div>

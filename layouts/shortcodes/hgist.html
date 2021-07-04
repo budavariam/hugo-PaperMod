@@ -1,0 +1,12 @@
+<style>
+    #gist-{{ index .Params 2 }} .gist .blob-wrapper.data,
+    #gist-{{ index .Params 2 }} .gist .blob.readme
+     {
+        max-height: {{ index .Params 0 }};
+        overflow: auto;
+    }
+</style>
+<div id="gist-{{ index .Params 2 }}">
+    <script type="application/javascript"
+        src="https://gist.github.com/{{ index .Params 1 }}/{{ index .Params 2 }}.js{{if len .Params | eq 4 }}?file={{ index .Params 3 }}{{end}}"></script>
+</div>

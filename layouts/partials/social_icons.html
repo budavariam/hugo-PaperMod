@@ -1,6 +1,32 @@
 <div class="social-icons">
+    {{ $social_prefix := newScratch}}
+    {{ $social_postfix := newScratch}}
+
+    {{ $social_prefix.Add "dribbble" "https://dribbble.com/" }}
+    {{ $social_prefix.Add "email" "mailto:" }}
+    {{ $social_prefix.Add "gmail" "mailto:" }}
+    {{ $social_prefix.Add "flickr" "https://www.flickr.com/" }}
+    {{ $social_prefix.Add "github" "https://github.com/" }}
+    {{ $social_prefix.Add "gitlab" "https://gitlab.com/" }}
+    {{ $social_prefix.Add "linkedin" "https://www.linkedin.com/in/" }}
+    {{ $social_prefix.Add "kofi" "https://www.ko-fi.com/" }}
+    {{ $social_prefix.Add "codefights" "https://codefights.com/profile/" }}
+    {{ $social_prefix.Add "stackoverflow" "https://stackoverflow.com/" }}
+    {{ $social_prefix.Add "devto" "https://dev.to/" }}
+    {{ $social_prefix.Add "pinterest" "https://www.pinterest.com/" }}
+    {{ $social_prefix.Add "rss" "/index.xml#" }}
+    {{ $social_prefix.Add "strava" "https://www.strava.com/athletes/" }}
+    {{ $social_prefix.Add "duolingo" "https://www.duolingo.com/profile/" }}
+    {{ $social_prefix.Add "instagram" "https://instagram.com/" }}
+    {{ $social_prefix.Add "twitter" "https://www.twitter.com/" }}
+    {{ $social_prefix.Add "tumblr" "https://" }}
+    {{ $social_postfix.Add "tumblr" ".tumblr.com" }}
+    {{ $social_prefix.Add "facebook" "https://www.facebook.com/" }}
+    {{ $social_prefix.Add "youtube" "https://youtube.com/" }}
+    {{ $social_prefix.Add "googleplus" "https://plus.google.com/" }}
+
     {{- range . -}}
-    <a href="{{ trim .url " " }}" target="_blank" rel="noopener noreferrer me"
-        title="{{ .name | humanize }}">{{ partial "svg.html" . }}</a>
+    <a href="{{ $social_prefix.Get .name }}{{ .value }}{{ $social_postfix.Get .name }}" target="_blank" rel="noopener noreferrer me"
+        title="{{ .name | humanize }}">{{ partial "svg_circle.html" . }}</a>
     {{- end -}}
 </div>

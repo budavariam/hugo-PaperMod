@@ -5,7 +5,9 @@
     max-width: calc(var(--nav-width) + var(--gap) * 2);
     margin-inline-start: auto;
     margin-inline-end: auto;
-    line-height: var(--header-height)
+    line-height: var(--header-height);
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
 }
 
 .nav a {
@@ -23,8 +25,9 @@
 }
 
 .logo a {
-    font-size: 24px;
-    font-weight: 700;
+    font-size: 28px;
+    font-weight: 300;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .logo a img {
@@ -36,13 +39,19 @@
     margin-inline-end: 8px
 }
 
+.site-description {
+    margin: 0;
+    color: var(--secondary);
+    font-size: 16px;
+    line-height: 1;
+}
+
 #theme-toggle svg {
     height: 18px;
 }
 
 button#theme-toggle  {
     font-size: 26px;
-    margin: auto 4px
 }
 
 body.dark #moon {
@@ -78,7 +87,6 @@ body:not(.dark) #sun {
 .lang-switch ul,
 .logo-switches {
     display: inline-flex;
-    margin: auto 4px;
 }
 
 .lang-switch {

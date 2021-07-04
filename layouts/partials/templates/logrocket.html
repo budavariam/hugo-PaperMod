@@ -1,0 +1,13 @@
+{{- if (and .Site.Params "logrocket" (ne .Params.disableLogrocket true) ) }}
+<script src="https://cdn.lr-ingest.io/LogRocket.min.js" crossorigin="anonymous"></script>
+<script>
+window.LogRocket && window.LogRocket.init('{{.Site.Params.logrocket.id}}/{{.Site.Params.logrocket.name}}');
+window.LogRocket.getSessionURL(function (sessionURL) {
+    ga('send', {
+        hitType: 'event',
+        eventCategory: 'LogRocket',
+        eventAction: sessionURL,
+    });
+});
+</script>
+{{- end }}

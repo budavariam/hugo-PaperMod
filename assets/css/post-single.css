@@ -316,6 +316,10 @@
     border: 1px solid var(--border)
 }
 
+.addthis_inline_share_toolbox {
+    margin: 10px 0;
+}
+
 .post-tags a {
     display: block;
     padding-inline-start: 14px;

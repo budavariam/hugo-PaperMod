@@ -16,6 +16,7 @@
     {{- .Summary | default (printf "%s - %s" .Title  .Site.Title) }}{{- else }}
     {{- with .Site.Params.description }}{{ . }}{{- end }}{{- end }}{{- end -}}">
 <meta name="author" content="{{ (partial "author.html" . ) }}">
+<meta name="theme-color" content="#317EFB"/>
 <link rel="canonical" href="{{ if .Params.canonicalURL -}} {{ trim .Params.canonicalURL " " }} {{- else -}} {{ .Permalink }} {{- end }}" />
 {{- if .Site.Params.analytics.google.SiteVerificationTag }}
 <meta name="google-site-verification" content="{{ .Site.Params.analytics.google.SiteVerificationTag }}" />
@@ -53,6 +54,7 @@
 <script defer src="{{ $search.RelPermalink }}" onload="loadSearch();"></script>
 {{- end}}
 {{- end -}}
+<script src="https://kit.fontawesome.com/68da183384.js" crossorigin="anonymous"></script>
 
 <!-- Favicons -->
 <link rel="icon" href="{{- .Site.Params.assets.favicon | default "favicon.ico" | absURL -}}">
@@ -82,4 +84,5 @@
 {{- template "partials/templates/opengraph.html" . }}
 {{- template "partials/templates/twitter_cards.html" . }}
 {{- template "partials/templates/schema_json.html" . }}
+{{- template "partials/templates/logrocket.html" . }}
 {{- end }}

@@ -11,7 +11,7 @@
 }
 
 .pagination {
-    display: flex
+    display: flex;
 }
 
 .pagination a {
@@ -20,26 +20,82 @@
     line-height: 36px;
     background: var(--primary);
     border-radius: calc(36px / 2);
-    padding: 0 16px
+    padding: 0 16px;
 }
 
 .pagination .next {
-    margin-inline-start: auto
+    margin-inline-start: auto;
 }
 
 .social-icons {
-    padding: 12px 0
+    padding: 12px 0;
+}
+
+.dark .logo a img,
+.dark .social-icons {
+    filter: brightness(0.7);
 }
 
 .social-icons a:not(:last-of-type) {
-    margin-inline-end: 12px
+    margin-inline-end: 5px
 }
 
 .social-icons a svg {
-    height: 26px;
-    width: 26px
+    height: 35px;
+    width: 35px
+}
+
+.post-content .social-icons a {
+    box-shadow: none;
 }
 
 code {
     direction: ltr
+}
+
+/* Use my theme colors for embedded gist, to look better in dark mode */
+.gist.gist {
+    color: var(--primary);
+}
+.gist.gist .gist-data {
+    background-color: var(--theme);
+}
+.gist.gist .markdown-body blockquote {
+    color: var(--secondary);
+}
+.gist.gist .markdown-body code,
+.gist.gist .markdown-body tt {
+    background-color: var(--code-bg)
+}
+
+/* my convertkit overrides */
+.formkit-form.formkit-form[data-uid="7d9354cde4"][min-width~="700"] [data-style="clean"], 
+.formkit-form.formkit-form[data-uid="7d9354cde4"][min-width~="800"] [data-style="clean"] {
+    padding: 0;
+}
+
+.formkit-form.formkit-form[data-uid="7d9354cde4"] {
+    margin: 20px 0;
+    max-width: initial;
+}
+.formkit-form.formkit-form[data-uid="7d9354cde4"] .formkit-submit {
+    color: var(--secondary) !important;
+    background: var(--code-bg) !important;
+}
+
+.formkit-form.formkit-form[data-uid="7d9354cde4"] .formkit-button > span, 
+.formkit-form.formkit-form[data-uid="7d9354cde4"] .formkit-submit > span {
+    padding: 12px;
+}
+
+#disqus_thread {
+    background-color: var(--code-bg);
+    border-radius: var(--radius);
+    padding: 12px; /* same as it convertkit */
+}
+
+.formkit-form.formkit-form[data-uid="7d9354cde4"]::after {
+    content: "Privacy Policy: I'll only use your address to send broadcast messages about my new content.";
+    color: var(--secondary);
+    font-size: x-small;
 }
