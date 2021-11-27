@@ -10,20 +10,20 @@ function createCopyButton(highlightDiv) {
 }
 
 async function copyCodeToClipboard(button, highlightDiv) {
-  const codeToCopy = highlightDiv.querySelector(":last-child > code").innerText;
-  try {
-    result = await navigator.permissions.query({ name: "clipboard-write" });
-    if (result.state == "granted" || result.state == "prompt") {
-      await navigator.clipboard.writeText(codeToCopy);
-    } else {
-      copyCodeBlockExecCommand(codeToCopy, highlightDiv);
+    const codeToCopy = highlightDiv.querySelector(":last-child > code").innerText;
+    try {
+        result = await navigator.permissions.query({ name: "clipboard-write" });
+        if (result.state == "granted" || result.state == "prompt") {
+            await navigator.clipboard.writeText(codeToCopy);
+        } else {
+            copyCodeBlockExecCommand(codeToCopy, highlightDiv);
+        }
+    } catch (_) {
+        copyCodeBlockExecCommand(codeToCopy, highlightDiv);
     }
-  } catch (_) {
-    copyCodeBlockExecCommand(codeToCopy, highlightDiv);
-  }
-  finally {
-    codeWasCopied(button);
-  }
+    finally {
+        codeWasCopied(button);
+    }
 }
 
 function copyCodeBlockExecCommand(codeToCopy, highlightDiv) {
@@ -43,20 +43,20 @@ function copyCodeBlockExecCommand(codeToCopy, highlightDiv) {
 }
 
 function codeWasCopied(button) {
-  button.blur();
-  button.innerText = "Copied!";
-  setTimeout(function() {
-    button.innerText = "Copy";
-  }, 2000);
+    button.blur();
+    button.innerText = "Copied!";
+    setTimeout(function () {
+        button.innerText = "Copy";
+    }, 2000);
 }
 
 function addCopyButtonToDom(button, highlightDiv) {
-  highlightDiv.insertBefore(button, highlightDiv.firstChild);
-  const wrapper = document.createElement("div");
-  wrapper.className = "highlight-wrapper";
-  highlightDiv.parentNode.insertBefore(wrapper, highlightDiv);
-  wrapper.appendChild(highlightDiv);
+    highlightDiv.insertBefore(button, highlightDiv.firstChild);
+    const wrapper = document.createElement("div");
+    wrapper.className = "highlight-wrapper";
+    highlightDiv.parentNode.insertBefore(wrapper, highlightDiv);
+    wrapper.appendChild(highlightDiv);
 }
 
 document.querySelectorAll(".highlight")
-  .forEach(highlightDiv => createCopyButton(highlightDiv));
+    .forEach(highlightDiv => createCopyButton(highlightDiv));
