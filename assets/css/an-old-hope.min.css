@@ -32,6 +32,7 @@
 .hljs-addition,
 .hljs-bullet,
 .hljs-string,
+.hljs-string a,
 .hljs-symbol {
     color: #4fb4d7
 }
