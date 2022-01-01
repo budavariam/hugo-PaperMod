@@ -26,6 +26,13 @@ function loadSearch() {
                     };
                     {{ if . }}options = {{ jsonify . }}{{ end }} // load custom options from .Site.Params.fuseOpts
                     fuse = new Fuse(data, options); // build the index from the json file
+                    if ('URLSearchParams' in window) {
+                        // load search from url
+                        const initSearch = new URLSearchParams(window.location.search).get('q');
+                        if (initSearch) {
+                            runSearch(initSearch)
+                        }
+                    }
                 }
             } else {
                 console.log(xhr.responseText);
@@ -55,7 +62,19 @@ function reset() {
 sInput.onkeyup = function (e) {
     // run a search query (for "term") every time a letter is typed
     // in the search box
-    const results = fuse.search(this.value.trim()); // the actual query being run using fuse.js
+    runSearch(this.value)
+}
+
+function runSearch(rawTerm) {
+    const term = (rawTerm || "").trim()
+    // console.log("Search:", term)
+    const results = fuse.search(term); // the actual query being run using fuse.js
+    if ('URLSearchParams' in window) {
+        var searchParams = new URLSearchParams(window.location.search)
+        searchParams.set("q", term); // write back search to url
+        var newRelativePathQuery = window.location.pathname + '?' + searchParams.toString();
+        history.pushState(null, '', newRelativePathQuery);
+    }
 
     if (results.length !== 0) {
         // build our html if result exists
