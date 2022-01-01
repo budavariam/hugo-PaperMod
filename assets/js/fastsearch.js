@@ -27,11 +27,16 @@ function loadSearch() {
                     {{ if . }}options = {{ jsonify . }}{{ end }} // load custom options from .Site.Params.fuseOpts
                     fuse = new Fuse(data, options); // build the index from the json file
                     if ('URLSearchParams' in window) {
-                        // load search from url
-                        const initSearch = new URLSearchParams(window.location.search).get('q');
-                        if (initSearch) {
-                            runSearch(initSearch)
-                        }
+                        try {
+                            // load search from url
+                            const initSearch = new URLSearchParams(window.location.search).get('q') || "";
+                            if (sInput && initSearch) {
+                                sInput.setAttribute("value", initSearch)
+                                runSearch(initSearch)
+                            }
+                        } catch (err) {
+                            console.error("Failed to load initial searh term from url")
+                        } 
                     }
                 }
             } else {
