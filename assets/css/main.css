@@ -99,3 +99,10 @@ code {
     color: var(--secondary);
     font-size: x-small;
 }
+
+body:not(.dark) .imgtheme-dark {
+    display: none;
+}
+body.dark .imgtheme-light {
+    display: none;
+}

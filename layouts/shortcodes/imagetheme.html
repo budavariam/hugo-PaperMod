@@ -1,0 +1,23 @@
+<!-- <picture>
+    <source 
+        media="(prefers-color-scheme: dark)"
+        {{- with .Get "darksrc" }} srcset="{{ . }}"{{ end -}}
+    >
+   <img 
+        {{- with .Get "lightsrc" }} src="{{ . }}"{{ end -}}
+        {{- with .Get "alt" }} alt="{{ . }}"{{ end -}}
+    >
+</picture> -->
+<picture>
+    <img 
+        class="imgtheme-light"
+        {{- with .Get "lightsrc" }} src="{{ . }}"{{ end -}}
+        {{- with .Get "alt" }} alt="{{ . }}"{{ end -}}
+        />
+    <img
+        class="imgtheme-dark"
+        {{- with .Get "darksrc" }} src="{{ . }}"{{ end -}}
+        {{- with .Get "alt" }} alt="{{ . }}"{{ end -}}
+    />
+</picture>
+
