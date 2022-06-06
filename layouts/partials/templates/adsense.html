@@ -1,0 +1,3 @@
+{{- if (and .Site.Params "adsense" (ne .Params.disableAdsense true) ) }}
+<script async src="{{ .Site.Params.adsense.url }}" crossorigin="anonymous"></script>
+{{- end }}
