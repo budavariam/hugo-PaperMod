@@ -47,6 +47,19 @@ try {
         name: idToken,
         email: `${idToken}@domain.com`,
     });
+
+    window.LogRocket.getSessionURL(function (sessionURL) {
+        try {        
+            window.ga('send', {
+                hitType: 'event',
+                eventCategory: 'LogRocket',
+                eventAction: sessionURL,
+            });
+        } catch (err) {
+            console.error("Google analytics is not yet available", err)
+        }
+    });
+
 } catch(err) {
     console.error("Failed to init logrocket", err)
 }
