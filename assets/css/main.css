@@ -101,8 +101,8 @@ code {
 }
 
 body:not(.dark) .imgtheme-dark {
-    display: none;
+    display: none !important;
 }
 body.dark .imgtheme-light {
-    display: none;
+    display: none !important;
 }
