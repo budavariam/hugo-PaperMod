@@ -1,0 +1,58 @@
+html {
+    scroll-behavior: smooth;
+}
+
+.sticky-toc {
+    position:absolute;
+    float: right;
+}
+
+@media screen and (max-width: 1368px) {
+    #TableOfContents {
+        display: none;
+    }
+    /* 
+    make sure to have 2 times the width of toc next to the sticky toc
+    var(--main-width) + 2*var(--gap) + 2*var(--tocW) 
+    920px+2*24px+2*200px=1368px
+    */
+    
+}
+
+#TableOfContents {
+	position: sticky;
+    float: right;
+	top: 2rem;
+    padding-top: calc(2 * var(--gap));
+    max-width: 200px; 
+    font-size: 0.8rem;
+    line-height: 1;
+}
+
+#TableOfContents li {
+    margin-left: 1rem;
+}
+
+#TableOfContents li.active > a {
+	color: var(--content);
+}
+
+/* Sidebar Navigation */
+
+#TableOfContents a {
+	text-decoration: none;
+	display: block;
+	color: var(--tertiary);
+	transition: all 50ms ease-in-out; /* 💡 This small transition makes setting of the active state smooth */
+}
+
+#TableOfContents a:hover,
+#TableOfContents a:focus {
+	color: var(--secondary);
+}
+
+#TableOfContents :is(ul, ol) {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}

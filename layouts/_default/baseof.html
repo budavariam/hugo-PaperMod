@@ -14,6 +14,9 @@
 {{- end -}}
 " id="top">
     {{- partialCached "header.html" . .Page}}
+    {{- if (.Param "ShowToc") }}
+        {{- partial "stickytoc.html" . }}
+    {{- end }}
     <main class="main">
         {{- block "main" . }}
         {{- end }}

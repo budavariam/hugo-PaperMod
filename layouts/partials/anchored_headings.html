@@ -1,2 +1,5 @@
 <!-- formats .Content headings by adding an anchor -->
-{{ . | replaceRE "(<h[1-6] id=\"([^\"]+)\".+)(</h[1-6]+>)" "${1}<a hidden class=\"anchor\" aria-hidden=\"true\" href=\"#${2}\">#</a>${3}" | safeHTML }}
+<section>
+{{- /* RE groups: 1: Header, 2: id, 3: content of Header, 4: Header closing */ -}}
+{{- . | replaceRE "(<h[1-6] )id=\"([^\"]+)\"([^>]*>.*)(</h[1-6]+>)" "</section><section id=\"${2}\">${1}${3}<a hidden class=\"anchor\" aria-hidden=\"true\" href=\"#${2}\">#</a>${4}" | safeHTML -}}
+</section>
