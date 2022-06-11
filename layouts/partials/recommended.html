@@ -58,7 +58,9 @@
                     data-link="{{ $Post.Permalink }}" tabindex="0">
                     <header class="recommend-post-header">
                       <div class="recommend-image-wrapper">
-                        <img src="{{ $imagePath }}" alt="{{$Post.Title}}" title="{{$Post.Title}}">
+                        {{ with .Resources.GetMatch "cover" }}
+                          <img src="data:{{ .MediaType }};base64,{{ .Content | base64Encode }}">
+                        {{ end }}
                         <span class="overlay"></span>
                       </div>
                       <h3 class="recommend-post-title" title="{{$Post.Title}}">
