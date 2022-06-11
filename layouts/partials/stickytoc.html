@@ -4,16 +4,20 @@ window.addEventListener('DOMContentLoaded', () => {
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       const id = entry.target.getAttribute('id');
+      const listItems = document.querySelector(`#TableOfContents li a[href="#${id}"]`)
+      if (!listItems) {
+        return
+      }
       if (entry.intersectionRatio > 0) {
-        document.querySelector(`#TableOfContents li a[href="#${id}"]`).parentElement.classList.add('active');
+        listItems.parentElement.classList.add('active');
       } else {
-        document.querySelector(`#TableOfContents li a[href="#${id}"]`).parentElement.classList.remove('active');
+        listItems.parentElement.classList.remove('active');
       }
     });
   });
 
   // Track all sections that have an `id` applied
-  document.querySelectorAll('section[id]').forEach((section) => {
+  document.querySelectorAll('.post-content section[id]').forEach((section) => {
     observer.observe(section);
   });
 
