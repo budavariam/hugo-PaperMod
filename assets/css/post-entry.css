@@ -4,7 +4,7 @@
     flex-direction: column;
     justify-content: center;
     min-height: 100px;
-    margin: var(--gap) 0 calc(var(--gap) * 2) 0
+    margin: var(--gap) 0 var(--gap) 0
 }
 
 .first-entry .entry-header {

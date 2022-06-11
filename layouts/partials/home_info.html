@@ -6,13 +6,13 @@
     {{- if .Content }}
     <section class="hg-entry-content">
         <p>{{- .Content | markdownify }}</p>
-        <p>
-            {{- partial "recommended.html" $ -}}
-        </p>
+        <p>{{- partial "social_icons.html" $.Site.Params.socialIcons -}}</p>
     </section>
     {{- end }}
     <footer class="entry-footer">
-        {{- partial "social_icons.html" $.Site.Params.socialIcons -}}
+        <p>
+            {{- partial "recommended.html" $ -}}
+        </p>
     </footer>
 </article>
 {{- end}}
