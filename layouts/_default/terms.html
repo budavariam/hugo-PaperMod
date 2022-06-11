@@ -12,7 +12,7 @@
 {{- end }}
 
 {{- $max := 0 }}
-{{- range $key, $value := .Data.Terms }}
+{{- range $key, $value := .Site.Taxonomies.tags }}
     {{- $max = cond (ge .Count $max  ) .Count $max }}
 {{- end }}
 
@@ -23,7 +23,7 @@
 
 <ul class="terms-tags" style="--terms-tag-max: {{ $max }}">
     {{- $type := .Type }}
-    {{- range $key, $value := .Data.Terms.Alphabetical }}
+    {{- range $key, $value := .Site.Taxonomies.tags.Alphabetical }}
         {{- $name := .Name }}
         {{- $count := .Count }}
         <!-- calc log scale from the given value. in other words remap the same scale between 1 and the max count value in a log scale, so small changes in lower values are more visible -->
