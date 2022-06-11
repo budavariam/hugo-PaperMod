@@ -53,13 +53,13 @@
               <div class="recommend-wrapper">
                 <div class="recommend-posts" data-role="recommend-posts">
                   {{ range $index, $Post := .Site.Taxonomies.featured.home }}
-                  {{ $imagePath := printf "%s" ($Post.Params.cover.image) }}
                   <div class="recommend-post post-{{ $index }}" data-role="recommended-post"
                     data-link="{{ $Post.Permalink }}" tabindex="0">
                     <header class="recommend-post-header">
                       <div class="recommend-image-wrapper">
                         {{ with .Resources.GetMatch "cover" }}
-                          <img src="data:{{ .MediaType }};base64,{{ .Content | base64Encode }}">
+                          {{ $processedImg := .Fit "200x200" }}
+                          <img src="data:{{ $processedImg.MediaType }};base64,{{ $processedImg.Content | base64Encode }}">
                         {{ end }}
                         <span class="overlay"></span>
                       </div>
