@@ -1,3 +1,31 @@
+
+.dark .recommendations-wrapper .recommend-main .scroll-btn {
+    background: rgba(31, 31, 31, .85);
+    color: rgba(255, 255, 255, .75);
+    border-color: rgba(31, 31, 31, .85)
+}
+
+.dark .recommendations-wrapper .recommend-main .scroll-btn:hover {
+    background: rgba(31, 31, 31, .95);
+    color: rgba(255, 255, 255, .9);
+    border-color: rgba(31, 31, 31, .9)
+}
+
+.dark .recommend-post,
+.dark .recommend-post:focus:not(:focus-visible) {
+    border: 1px solid rgba(255, 255, 255, .05)
+}
+
+.dark .recommend-post {
+    background: rgba(255, 255, 255, .08)
+}
+
+.dark .recommend-post:focus-visible {
+    border: 2px solid #2E9FFF;
+    border-radius: calc(4px)
+}
+
+
 button::-moz-focus-inner {
     border: 0
 }
@@ -370,30 +398,4 @@ button::-moz-focus-inner {
     .recommend-main .recommend-post .content-preview-wrapper {
         display: none
     }
-}
-
-.dark .recommendations-wrapper .recommend-main .scroll-btn {
-    background: rgba(31, 31, 31, .85);
-    color: rgba(255, 255, 255, .75);
-    border-color: rgba(31, 31, 31, .85)
-}
-
-.dark .recommendations-wrapper .recommend-main .scroll-btn:hover {
-    background: rgba(31, 31, 31, .95);
-    color: rgba(255, 255, 255, .9);
-    border-color: rgba(31, 31, 31, .9)
-}
-
-.dark .recommend-post,
-.dark .recommend-post:focus:not(:focus-visible) {
-    border: 1px solid rgba(255, 255, 255, .05)
-}
-
-.dark .recommend-post {
-    background: rgba(255, 255, 255, .08)
-}
-
-.dark .recommend-post:focus-visible {
-    border: 2px solid #2E9FFF;
-    border-radius: calc(4px)
 }
