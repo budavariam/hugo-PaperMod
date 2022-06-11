@@ -1,223 +1,24 @@
 <script>
   window.addEventListener('DOMContentLoaded', () => {
-    // const SLIDE_SELECTOR = '.recommend-post'
-
-    // var carousel = document.querySelector('.recommend-wrapper');
-    // debugger
-    // var carouselContent = document.querySelector('.recommend-posts');
-    // var slides = document.querySelectorAll(SLIDE_SELECTOR);
-    // var arrayOfSlides = Array.prototype.slice.call(slides);
-    // var carouselDisplaying = 5;
-    // var screenSize;
-    // setScreenSize();
-    // var lengthOfSlide;
-
-    // function addClone() {
-    //   var lastSlide = carouselContent.lastElementChild.cloneNode(true);
-    //   lastSlide.style.left = (-lengthOfSlide) + "px";
-    //   carouselContent.insertBefore(lastSlide, carouselContent.firstChild);
-    // }
-    // // addClone();
-
-    // function removeClone() {
-    //   var firstSlide = carouselContent.firstElementChild;
-    //   firstSlide.parentNode.removeChild(firstSlide);
-    // }
-
-    // function moveSlidesRight() {
-    //   var slides = document.querySelectorAll(SLIDE_SELECTOR);
-    //   var slidesArray = Array.prototype.slice.call(slides);
-    //   var width = 0;
-
-    //   slidesArray.forEach(function (el, i) {
-    //     el.style.left = width + "px";
-    //     width += lengthOfSlide;
-    //   });
-    //   addClone();
-    // }
-    // moveSlidesRight();
-
-    // function moveSlidesLeft() {
-    //   var slides = document.querySelectorAll(SLIDE_SELECTOR);
-    //   var slidesArray = Array.prototype.slice.call(slides);
-    //   slidesArray = slidesArray.reverse();
-    //   var maxWidth = (slidesArray.length - 1) * lengthOfSlide;
-
-    //   slidesArray.forEach(function (el, i) {
-    //     maxWidth -= lengthOfSlide;
-    //     el.style.left = maxWidth + "px";
-    //   });
-    // }
-
-    // window.addEventListener('resize', setScreenSize);
-
-    // function setScreenSize() {
-    //   // if (window.innerWidth >= 500) {
-    //   //   carouselDisplaying = 3;
-    //   // } else if (window.innerWidth >= 300) {
-    //   //   carouselDisplaying = 2;
-    //   // } else {
-    //   //   carouselDisplaying = 1;
-    //   // }
-    //   getScreenSize();
-    // }
-
-    // function getScreenSize() {
-    //   var slides = document.querySelectorAll(SLIDE_SELECTOR);
-    //   var slidesArray = Array.prototype.slice.call(slides);
-    //   lengthOfSlide = (carousel.offsetWidth / carouselDisplaying);
-    //   var initialWidth = -lengthOfSlide;
-    //   slidesArray.forEach(function (el) {
-    //     el.style.width = lengthOfSlide + "px";
-    //     el.style.left = initialWidth + "px";
-    //     initialWidth += lengthOfSlide;
-    //   });
-    // }
-
-    // var moving = true;
-    // function moveRight() {
-    //   if (moving) {
-    //     moving = false;
-    //     var lastSlide = carouselContent.lastElementChild;
-    //     lastSlide.parentNode.removeChild(lastSlide);
-    //     carouselContent.insertBefore(lastSlide, carouselContent.firstChild);
-    //     removeClone();
-    //     var firstSlide = carouselContent.firstElementChild;
-    //     firstSlide.addEventListener('transitionend', activateAgain);
-    //     moveSlidesRight();
-    //   }
-    // }
-
-    // function activateAgain() {
-    //   var firstSlide = carouselContent.firstElementChild;
-    //   moving = true;
-    //   firstSlide.removeEventListener('transitionend', activateAgain);
-    // }
-
-    // function moveLeft() {
-    //   if (moving) {
-    //     moving = false;
-    //     removeClone();
-    //     var firstSlide = carouselContent.firstElementChild;
-    //     firstSlide.addEventListener('transitionend', replaceToEnd);
-    //     moveSlidesLeft();
-    //   }
-    // }
-
-    // function replaceToEnd() {
-    //   var firstSlide = carouselContent.firstElementChild;
-    //   firstSlide.parentNode.removeChild(firstSlide);
-    //   carouselContent.appendChild(firstSlide);
-    //   firstSlide.style.left = ((arrayOfSlides.length - 1) * lengthOfSlide) + "px";
-    //   addClone();
-    //   moving = true;
-    //   firstSlide.removeEventListener('transitionend', replaceToEnd);
-    // }
-
-
-
-
-    // carouselContent.addEventListener('mousedown', seeMovement);
-
-    // var initialX;
-    // var initialPos;
-    // function seeMovement(e) {
-    //   initialX = e.clientX;
-    //   getInitialPos();
-    //   carouselContent.addEventListener('mousemove', slightMove);
-    //   document.addEventListener('mouseup', moveBasedOnMouse);
-    // }
-
-    // function slightMove(e) {
-    //   if (moving) {
-    //     var movingX = e.clientX;
-    //     var difference = initialX - movingX;
-    //     if (Math.abs(difference) < (lengthOfSlide / 4)) {
-    //       slightMoveSlides(difference);
-    //     }
-    //   }
-    // }
-
-    // function getInitialPos() {
-    //   var slides = document.querySelectorAll(SLIDE_SELECTOR);
-    //   var slidesArray = Array.prototype.slice.call(slides);
-    //   initialPos = [];
-    //   slidesArray.forEach(function (el) {
-    //     var left = Math.floor(parseInt(el.style.left.slice(0, -2)));
-    //     initialPos.push(left);
-    //   });
-    // }
-
-    // function slightMoveSlides(newX) {
-    //   var slides = document.querySelectorAll(SLIDE_SELECTOR);
-    //   var slidesArray = Array.prototype.slice.call(slides);
-    //   slidesArray.forEach(function (el, i) {
-    //     var oldLeft = initialPos[i];
-    //     el.style.left = (oldLeft + newX) + "px";
-    //   });
-    // }
-
-    // function moveBasedOnMouse(e) {
-    //   var finalX = e.clientX;
-    //   if (initialX - finalX > 0) {
-    //     moveRight();
-    //   } else if (initialX - finalX < 0) {
-    //     moveLeft();
-    //   }
-    //   document.removeEventListener('mouseup', moveBasedOnMouse);
-    //   carouselContent.removeEventListener('mousemove', slightMove);
-    // }
-
-    function animate(elem, options, duration) {
-      const finish = options.scrollLeft
-      var left = 0
-      function frame() {
-        left++  // update parameters
-        elem.style.left = left + 'px' // show frame
-        if (left === finish)
-          clearInterval(id)
-      }
-      var id = setInterval(frame, 10) // draw every 10ms
-    }
-
-    // Immediately-invoked function expression
-    (function () {
-      // Load the script
-      const script = document.createElement("script");
-      script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js';
-      script.type = 'text/javascript';
-      script.addEventListener('load', () => {
-        console.log(`jQuery ${$.fn.jquery} has been loaded successfully!`);
-        // use jQuery below
-      });
-      document.head.appendChild(script);
-    })();
-
     function scroll(direction) {
-      debugger
-      const container = document.querySelector('.recommend-wrapper') // c
-      const posts = document.querySelector('.recommend-posts') //d
-      const postCount = posts.childElementCount // e
-      const singleItemWidth = posts.offsetWidth / postCount //f
-      let doubleWidth = 2 * singleItemWidth // g
-      let duration = 700 //h
+      const container = document.querySelector('.recommend-wrapper')
+      const posts = document.querySelector('.recommend-posts')
+      const postCount = posts.childElementCount
+      const singleItemWidth = posts.offsetWidth / postCount
+      let doubleWidth = 2 * singleItemWidth
+      let duration = 700
       container.offsetWidth < doubleWidth && (doubleWidth = singleItemWidth, duration /= 2)
-      const i = container.scrollLeft + doubleWidth * direction
-      $(container).animate({ scrollLeft: i }, duration)
+      // const i = container.scrollLeft + doubleWidth * direction
+      // $(container).animate({ scrollLeft: i }, duration) // jquery
+      const scrollBy = doubleWidth * direction
+      container.scrollBy({ top: 0, left: scrollBy, behavior: 'smooth' })
     }
 
-    function moveLeft(e) {
-      console.log("move left")
-      scroll(1)
-    }
-    function moveRight(e) {
-      console.log("move right")
-      scroll(-1)
-    }
-
+    const moveLeft = (e) => scroll(1)
     const rightNav = document.querySelector('.scroll-right');
     rightNav.addEventListener('click', moveLeft);
-
+    
+    const moveRight = (e) => scroll(-1)
     const leftNav = document.querySelector('.scroll-left');
     leftNav.addEventListener('click', moveRight);
   })
@@ -228,10 +29,6 @@
     <div class="recommendations-wrapper" style="width: 100%;">
       <div id="recommend-main-c9" class="recommend-main  ">
         <section id="col-organic-c21" class="col-organic">
-          <header id="recommendations-header" class="recommend-col-header">
-            <h2 class="recommendations-unit-title">Also on <strong class="recommendations-forum">budavariam</strong>
-            </h2>
-          </header>
           <div class="recommendations-unit">
             <div class="recommendation-container"><button class="scroll-btn scroll-left" data-action="scroll-left"
                 tabindex="-1">❮</button>
