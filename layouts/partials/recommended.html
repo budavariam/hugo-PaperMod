@@ -1,5 +1,8 @@
+<script defer src="//cdnjs.cloudflare.com/ajax/libs/timeago.js/2.0.2/timeago.min.js"></script>
 <script>
   window.addEventListener('DOMContentLoaded', () => {
+    /// Add navigation to the recommendation block
+    
     function scroll(direction) {
       const container = document.querySelector('.recommend-wrapper')
       const posts = document.querySelector('.recommend-posts')
@@ -21,23 +24,23 @@
     const moveRight = (e) => scroll(-1)
     const leftNav = document.querySelector('.scroll-left');
     leftNav.addEventListener('click', moveRight);
+
+    /// Calculate when was the post created dynamically
+
+    const nodes = document.querySelectorAll('.timeago');
+    const timeAgo = new window.timeago();
+    timeAgo.render(nodes, 'en_US');
+    // cancel all real-time render task
+    timeAgo.cancel();
+
+    const posts = document.querySelectorAll('.recommend-post');
+    posts.forEach((post) => {
+      post.addEventListener('click', (e) => {
+        window.open(post.dataset.link);
+      });
+    })
   })
 </script>
-
-{{ range .Site.Taxonomies.featured.home }}
-<li>
-    <h1>HEYYY<a href="{{ .Permalink }}">{{ .Title }}</a></h1>
-    <time>{{ .Date.Format "Mon, Jan 2, 2006" }}</time>
-</li>
-{{ end}}
-
-{{ range where site.RegularPages "Type" "in" site.Params.mainSections }}
-<li>
-    <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
-    <time>{{ .Date.Format "Mon, Jan 2, 2006" }}</time>
-</li>
-{{ end }}
-
 
 <div class="recommendations-layout" data-tracking-area="recommendations-layout">
   <div class="post-list" style="height: auto; visibility: visible;">
@@ -45,34 +48,43 @@
       <div class="recommend-main  ">
         <section class="col-organic">
           <div class="recommendations-unit">
-            <div class="recommendation-container"><button class="scroll-btn scroll-left" data-action="scroll-left"
-                tabindex="-1">❮</button>
+            <div class="recommendation-container">
+              <button class="scroll-btn scroll-left" data-action="scroll-left" tabindex="-1">❮</button>
               <div class="recommend-wrapper">
                 <div class="recommend-posts" data-role="recommend-posts">
-                  <div class="recommend-post post-7" data-role="recommended-post"
-                    data-link="https://budavariam.github.io/posts/2022/03/26/starschema-hackathon-2022/" tabindex="0">
+                  {{ range $index, $Post := .Site.Taxonomies.featured.home }}
+                  {{ $imagePath := printf "%s" ($Post.Params.cover.image) }}
+                  <div class="recommend-post post-{{ $index }}" data-role="recommended-post"
+                    data-link="{{ $Post.Permalink }}" tabindex="0">
                     <header class="recommend-post-header">
-                      <div class="recommend-image-wrapper"><img
-                          src="//c.disquscdn.com/get?url=https%3A%2F%2Fbudavariam.github.io%2Fimages%2F2022-03-26-starschema-hackathon-2022%2Fcover.jpg&amp;key=64WxZdoPhs4plYGGyNPXew&amp;h=200"
-                          alt="Starschema Hackathon 2022" title="Starschema Hackathon 2022"><span
-                          class="overlay"></span>
+                      <div class="recommend-image-wrapper">
+                        <img src="{{ $imagePath }}" alt="{{$Post.Title}}" title="{{$Post.Title}}">
+                        <span class="overlay"></span>
                       </div>
-                      <h3 class="recommend-post-title" title="Starschema Hackathon 2022"><span
-                          data-role="recommend-thread-title" class="title line-truncate" data-line-truncate="3"
-                          data-content="Starschema Hackathon 2022">Starschema Hackathon
-                          2022</span></h3>
+                      <h3 class="recommend-post-title" title="{{$Post.Title}}">
+                        <span data-role="recommend-thread-title" class="title line-truncate" data-line-truncate="3"
+                          data-content="{{$Post.Title}}">{{$Post.Title}}</span>
+                      </h3>
                     </header>
                     <ul class="meta">
-                      <li class="time">3 months ago</li>
+                      <li class="time">
+                        {{ with .Date.Format "2006-01-02 15:04:05Z07:00" }}
+                        <div class="timeago" datetime="{{ . }}"></div>
+                        {{end}}
+                      </li>
                     </ul>
                     <div class="content-preview-wrapper">
-                      <div class="recommend-content"><span data-role="recommend-description-snippet"
-                          class="line-truncate" data-line-truncate="5">New Year, new transferred working day.
-                          Luckily we had the opportunity to do …</span></div>
+                      <div class="recommend-content">
+                        <span data-role="recommend-description-snippet" class="line-truncate" data-line-truncate="5">
+                          {{ $Post.Summary | plainify | htmlUnescape }}...
+                        </span>
+                      </div>
                     </div>
                   </div>
+                  {{ end}}
                 </div>
-              </div><button class="scroll-btn scroll-right" data-action="scroll-right" tabindex="-1">❯</button>
+              </div>
+              <button class="scroll-btn scroll-right" data-action="scroll-right" tabindex="-1">❯</button>
             </div>
           </div>
         </section>

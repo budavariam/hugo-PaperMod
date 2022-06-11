@@ -27,10 +27,9 @@ button::-moz-focus-inner {
     opacity: 1
 }
 
-.recommendations-wrapper .recommend-main.no-meta .recommend-content,
-.recommendations-wrapper .recommend-main.no-meta .recommend-top-comment-wrapper {
+.recommendations-wrapper .recommend-main.no-meta .recommend-content {
     max-height: calc(5.2em);
-    padding-top: 2px
+    padding-top: 2px;
 }
 
 .recommendations-wrapper .recommend-main.no-meta.has-preview-title .recommend-content,
@@ -245,7 +244,6 @@ button::-moz-focus-inner {
 }
 
 .recommend-post .content-preview-wrapper {
-    color: #2a2e2e;
     display: inline-block;
     width: 90%;
     margin: 6px 5%;
@@ -254,6 +252,7 @@ button::-moz-focus-inner {
 
 
 .recommend-post .content-preview-wrapper .recommend-content {
+    color: var(--secondary);
     line-height: 1.3;
     max-height: calc(3.9em);
     padding-top: 0;
@@ -397,19 +396,4 @@ button::-moz-focus-inner {
 .dark .recommend-post:focus-visible {
     border: 2px solid #2E9FFF;
     border-radius: calc(4px)
-}
-
-.dark .recommend-post .meta {
-    color: rgba(255, 255, 255, .5)
-}
-
-@media (max-width:480px) {
-    .dark .recommend-post .meta {
-        color: rgba(255, 255, 255, .75)
-    }
-}
-
-.dark .recommend-post .content-preview-wrapper .recommend-content,
-.dark .recommend-post .content-preview-wrapper .recommend-content .recommend-post-title {
-    color: rgba(255, 255, 255, .9)
 }
