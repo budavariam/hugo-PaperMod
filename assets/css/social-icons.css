@@ -1,9 +1,6 @@
 .social-icons {
     padding: 12px 0;
 }
-.social-icons a {
-    border: none;
-}
 
 .social-icons a svg {
     height: 35px;
@@ -16,4 +13,8 @@
 
 .post-content .social-icons a {
     box-shadow: none;
+}
+
+.footer .social-icons a {
+    border: none;
 }

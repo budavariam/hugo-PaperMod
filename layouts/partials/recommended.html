@@ -1,0 +1,425 @@
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    // const SLIDE_SELECTOR = '.recommend-post'
+
+    // var carousel = document.querySelector('.recommend-wrapper');
+    // debugger
+    // var carouselContent = document.querySelector('.recommend-posts');
+    // var slides = document.querySelectorAll(SLIDE_SELECTOR);
+    // var arrayOfSlides = Array.prototype.slice.call(slides);
+    // var carouselDisplaying = 5;
+    // var screenSize;
+    // setScreenSize();
+    // var lengthOfSlide;
+
+    // function addClone() {
+    //   var lastSlide = carouselContent.lastElementChild.cloneNode(true);
+    //   lastSlide.style.left = (-lengthOfSlide) + "px";
+    //   carouselContent.insertBefore(lastSlide, carouselContent.firstChild);
+    // }
+    // // addClone();
+
+    // function removeClone() {
+    //   var firstSlide = carouselContent.firstElementChild;
+    //   firstSlide.parentNode.removeChild(firstSlide);
+    // }
+
+    // function moveSlidesRight() {
+    //   var slides = document.querySelectorAll(SLIDE_SELECTOR);
+    //   var slidesArray = Array.prototype.slice.call(slides);
+    //   var width = 0;
+
+    //   slidesArray.forEach(function (el, i) {
+    //     el.style.left = width + "px";
+    //     width += lengthOfSlide;
+    //   });
+    //   addClone();
+    // }
+    // moveSlidesRight();
+
+    // function moveSlidesLeft() {
+    //   var slides = document.querySelectorAll(SLIDE_SELECTOR);
+    //   var slidesArray = Array.prototype.slice.call(slides);
+    //   slidesArray = slidesArray.reverse();
+    //   var maxWidth = (slidesArray.length - 1) * lengthOfSlide;
+
+    //   slidesArray.forEach(function (el, i) {
+    //     maxWidth -= lengthOfSlide;
+    //     el.style.left = maxWidth + "px";
+    //   });
+    // }
+
+    // window.addEventListener('resize', setScreenSize);
+
+    // function setScreenSize() {
+    //   // if (window.innerWidth >= 500) {
+    //   //   carouselDisplaying = 3;
+    //   // } else if (window.innerWidth >= 300) {
+    //   //   carouselDisplaying = 2;
+    //   // } else {
+    //   //   carouselDisplaying = 1;
+    //   // }
+    //   getScreenSize();
+    // }
+
+    // function getScreenSize() {
+    //   var slides = document.querySelectorAll(SLIDE_SELECTOR);
+    //   var slidesArray = Array.prototype.slice.call(slides);
+    //   lengthOfSlide = (carousel.offsetWidth / carouselDisplaying);
+    //   var initialWidth = -lengthOfSlide;
+    //   slidesArray.forEach(function (el) {
+    //     el.style.width = lengthOfSlide + "px";
+    //     el.style.left = initialWidth + "px";
+    //     initialWidth += lengthOfSlide;
+    //   });
+    // }
+
+    // var moving = true;
+    // function moveRight() {
+    //   if (moving) {
+    //     moving = false;
+    //     var lastSlide = carouselContent.lastElementChild;
+    //     lastSlide.parentNode.removeChild(lastSlide);
+    //     carouselContent.insertBefore(lastSlide, carouselContent.firstChild);
+    //     removeClone();
+    //     var firstSlide = carouselContent.firstElementChild;
+    //     firstSlide.addEventListener('transitionend', activateAgain);
+    //     moveSlidesRight();
+    //   }
+    // }
+
+    // function activateAgain() {
+    //   var firstSlide = carouselContent.firstElementChild;
+    //   moving = true;
+    //   firstSlide.removeEventListener('transitionend', activateAgain);
+    // }
+
+    // function moveLeft() {
+    //   if (moving) {
+    //     moving = false;
+    //     removeClone();
+    //     var firstSlide = carouselContent.firstElementChild;
+    //     firstSlide.addEventListener('transitionend', replaceToEnd);
+    //     moveSlidesLeft();
+    //   }
+    // }
+
+    // function replaceToEnd() {
+    //   var firstSlide = carouselContent.firstElementChild;
+    //   firstSlide.parentNode.removeChild(firstSlide);
+    //   carouselContent.appendChild(firstSlide);
+    //   firstSlide.style.left = ((arrayOfSlides.length - 1) * lengthOfSlide) + "px";
+    //   addClone();
+    //   moving = true;
+    //   firstSlide.removeEventListener('transitionend', replaceToEnd);
+    // }
+
+
+
+
+    // carouselContent.addEventListener('mousedown', seeMovement);
+
+    // var initialX;
+    // var initialPos;
+    // function seeMovement(e) {
+    //   initialX = e.clientX;
+    //   getInitialPos();
+    //   carouselContent.addEventListener('mousemove', slightMove);
+    //   document.addEventListener('mouseup', moveBasedOnMouse);
+    // }
+
+    // function slightMove(e) {
+    //   if (moving) {
+    //     var movingX = e.clientX;
+    //     var difference = initialX - movingX;
+    //     if (Math.abs(difference) < (lengthOfSlide / 4)) {
+    //       slightMoveSlides(difference);
+    //     }
+    //   }
+    // }
+
+    // function getInitialPos() {
+    //   var slides = document.querySelectorAll(SLIDE_SELECTOR);
+    //   var slidesArray = Array.prototype.slice.call(slides);
+    //   initialPos = [];
+    //   slidesArray.forEach(function (el) {
+    //     var left = Math.floor(parseInt(el.style.left.slice(0, -2)));
+    //     initialPos.push(left);
+    //   });
+    // }
+
+    // function slightMoveSlides(newX) {
+    //   var slides = document.querySelectorAll(SLIDE_SELECTOR);
+    //   var slidesArray = Array.prototype.slice.call(slides);
+    //   slidesArray.forEach(function (el, i) {
+    //     var oldLeft = initialPos[i];
+    //     el.style.left = (oldLeft + newX) + "px";
+    //   });
+    // }
+
+    // function moveBasedOnMouse(e) {
+    //   var finalX = e.clientX;
+    //   if (initialX - finalX > 0) {
+    //     moveRight();
+    //   } else if (initialX - finalX < 0) {
+    //     moveLeft();
+    //   }
+    //   document.removeEventListener('mouseup', moveBasedOnMouse);
+    //   carouselContent.removeEventListener('mousemove', slightMove);
+    // }
+
+    function animate(elem, options, duration) {
+      const finish = options.scrollLeft
+      var left = 0
+      function frame() {
+        left++  // update parameters
+        elem.style.left = left + 'px' // show frame
+        if (left === finish)
+          clearInterval(id)
+      }
+      var id = setInterval(frame, 10) // draw every 10ms
+    }
+
+    // Immediately-invoked function expression
+    (function () {
+      // Load the script
+      const script = document.createElement("script");
+      script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js';
+      script.type = 'text/javascript';
+      script.addEventListener('load', () => {
+        console.log(`jQuery ${$.fn.jquery} has been loaded successfully!`);
+        // use jQuery below
+      });
+      document.head.appendChild(script);
+    })();
+
+    function scroll(direction) {
+      debugger
+      const container = document.querySelector('.recommend-wrapper') // c
+      const posts = document.querySelector('.recommend-posts') //d
+      const postCount = posts.childElementCount // e
+      const singleItemWidth = posts.offsetWidth / postCount //f
+      let doubleWidth = 2 * singleItemWidth // g
+      let duration = 700 //h
+      container.offsetWidth < doubleWidth && (doubleWidth = singleItemWidth, duration /= 2)
+      const i = container.scrollLeft + doubleWidth * direction
+      $(container).animate({ scrollLeft: i }, duration)
+    }
+
+    function moveLeft(e) {
+      console.log("move left")
+      scroll(1)
+    }
+    function moveRight(e) {
+      console.log("move right")
+      scroll(-1)
+    }
+
+    const rightNav = document.querySelector('.scroll-right');
+    rightNav.addEventListener('click', moveLeft);
+
+    const leftNav = document.querySelector('.scroll-left');
+    leftNav.addEventListener('click', moveRight);
+  })
+</script>
+
+<div id="recommendations-layout" class="recommendations-layout" data-tracking-area="recommendations-layout">
+  <div class="post-list" style="height: auto; visibility: visible;">
+    <div class="recommendations-wrapper" style="width: 100%;">
+      <div id="recommend-main-c9" class="recommend-main  ">
+        <section id="col-organic-c21" class="col-organic">
+          <header id="recommendations-header" class="recommend-col-header">
+            <h2 class="recommendations-unit-title">Also on <strong class="recommendations-forum">budavariam</strong>
+            </h2>
+          </header>
+          <div class="recommendations-unit">
+            <div class="recommendation-container"><button class="scroll-btn scroll-left" data-action="scroll-left"
+                tabindex="-1">❮</button>
+              <div class="recommend-wrapper">
+                <div class="recommend-posts" data-role="recommend-posts">
+                  <div class="recommend-post post-0" id="recommend-link-organic-8889805518" data-role="recommended-post"
+                    data-link="https://budavariam.github.io/posts/2021/11/20/mssql-server-adventures/" tabindex="0">
+                    <header class="recommend-post-header">
+                      <div class="recommend-image-wrapper"><img
+                          src="//c.disquscdn.com/get?url=https%3A%2F%2Fbudavariam.github.io%2Fimages%2F2021-11-20-mssql-server-adventures%2Fcover.jpg&amp;key=HJNvR95InygDvzbG9yHT1Q&amp;h=200"
+                          alt="MSSQL Server Adventures" title="MSSQL Server Adventures"><span class="overlay"></span>
+                      </div>
+                      <h3 class="recommend-post-title" title="MSSQL Server Adventures"><span
+                          data-role="recommend-thread-title" class="title line-truncate" data-line-truncate="3"
+                          data-content="MSSQL Server Adventures">MSSQL
+                          Server Adventures</span></h3>
+                    </header>
+                    <ul class="meta">
+                      <li class="time">7 months ago</li>
+                    </ul>
+                    <div class="content-preview-wrapper">
+                      <div class="recommend-content"><span data-role="recommend-description-snippet"
+                          class="line-truncate" data-line-truncate="5">As I wrote in my last post, I’ve been working
+                          closely with Microsoft SQL …</span></div>
+                    </div>
+                  </div>
+                  <div class="recommend-post post-1" id="recommend-link-organic-9104778669" data-role="recommended-post"
+                    data-link="https://budavariam.github.io/posts/2022/04/04/organization-specific-git-config/"
+                    tabindex="0">
+                    <header class="recommend-post-header">
+                      <div class="recommend-image-wrapper"><img
+                          src="//c.disquscdn.com/get?url=https%3A%2F%2Fbudavariam.github.io%2Fimages%2F2022-04-04-organization-specific-git-config%2Fcover.png&amp;key=0BGG5T6wMfyz2wBnVOom9g&amp;h=200"
+                          alt="Organization Specific Git Config" title="Organization Specific Git Config"><span
+                          class="overlay"></span></div>
+                      <h3 class="recommend-post-title" title="Organization Specific Git Config">
+                        <span data-role="recommend-thread-title" class="title line-truncate" data-line-truncate="3"
+                          data-content="Organization Specific Git Config">Organization
+                          Specific Git Config</span>
+                      </h3>
+                    </header>
+                    <ul class="meta">
+                      <li class="time">2 months ago</li>
+                    </ul>
+                    <div class="content-preview-wrapper">
+                      <div class="recommend-content"><span data-role="recommend-description-snippet"
+                          class="line-truncate" data-line-truncate="5">I often need to present myself differently in
+                          git per project. When I work on a …</span></div>
+                    </div>
+                  </div>
+                  <div class="recommend-post post-2" id="recommend-link-organic-9094875479" data-role="recommended-post"
+                    data-link="https://budavariam.github.io/posts/2021/04/05/plotly-dash-development-tips/?msclkid=d5eb4ac0af8411ec86a27df254ae5f19"
+                    tabindex="0">
+                    <header class="recommend-post-header">
+                      <div class="recommend-image-wrapper"><img
+                          src="//c.disquscdn.com/get?url=https%3A%2F%2Fbudavariam.github.io%2Fimages%2F2021-04-05-plotly-dash-development-tips%2Fcover.png&amp;key=AStn5TK8g8AxJ5waQYfcqA&amp;h=200"
+                          alt="Plotly Dash Development Tips" title="Plotly Dash Development Tips"><span
+                          class="overlay"></span>
+                      </div>
+                      <h3 class="recommend-post-title" title="Plotly Dash Development Tips"><span
+                          data-role="recommend-thread-title" class="title line-truncate" data-line-truncate="3"
+                          data-content="Plotly Dash Development Tips">Plotly Dash Development
+                          Tips</span></h3>
+                    </header>
+                    <ul class="meta">
+                      <li class="time">2 months ago</li>
+                    </ul>
+                    <div class="content-preview-wrapper">
+                      <div class="recommend-content"><span data-role="recommend-description-snippet"
+                          class="line-truncate" data-line-truncate="5">Last year I was working on some dash-plotly
+                          applications/dashboards. …</span></div>
+                    </div>
+                  </div>
+                  <div class="recommend-post post-3" id="recommend-link-organic-9126301864" data-role="recommended-post"
+                    data-link="https://budavariam.github.io/posts/2021/04/05/plotly-dash-development-tips/?msclkid=af75b4b7be9311ecb9caae26a7c9d70e"
+                    tabindex="0">
+                    <header class="recommend-post-header">
+                      <div class="recommend-image-wrapper"><img
+                          src="//c.disquscdn.com/get?url=https%3A%2F%2Fbudavariam.github.io%2Fimages%2F2021-04-05-plotly-dash-development-tips%2Fcover.png&amp;key=AStn5TK8g8AxJ5waQYfcqA&amp;h=200"
+                          alt="Plotly Dash Development Tips" title="Plotly Dash Development Tips"><span
+                          class="overlay"></span>
+                      </div>
+                      <h3 class="recommend-post-title" title="Plotly Dash Development Tips"><span
+                          data-role="recommend-thread-title" class="title line-truncate" data-line-truncate="3"
+                          data-content="Plotly Dash Development Tips">Plotly Dash Development
+                          Tips</span></h3>
+                    </header>
+                    <ul class="meta">
+                      <li class="time">2 months ago</li>
+                    </ul>
+                    <div class="content-preview-wrapper">
+                      <div class="recommend-content"><span data-role="recommend-description-snippet"
+                          class="line-truncate" data-line-truncate="5">Last year I was working on some dash-plotly
+                          applications/dashboards. …</span></div>
+                    </div>
+                  </div>
+                  <div class="recommend-post post-4" id="recommend-link-organic-8927605919" data-role="recommended-post"
+                    data-link="https://budavariam.github.io/posts/2021/12/15/oitm-2021/" tabindex="0">
+                    <header class="recommend-post-header">
+                      <div class="recommend-image-wrapper"><img
+                          src="//c.disquscdn.com/get?url=https%3A%2F%2Fbudavariam.github.io%2Fimages%2F2021-12-15-oitm-2021%2Fcover.png&amp;key=_mBPVgIgd3rl0RtEfOgCmw&amp;h=200"
+                          alt="OITM 2021" title="OITM 2021"><span class="overlay"></span>
+                      </div>
+                      <h3 class="recommend-post-title" title="OITM 2021"><span data-role="recommend-thread-title"
+                          class="title line-truncate" data-line-truncate="3" data-content="OITM 2021">OITM 2021</span>
+                      </h3>
+                    </header>
+                    <ul class="meta">
+                      <li class="time">6 months ago</li>
+                    </ul>
+                    <div class="content-preview-wrapper">
+                      <div class="recommend-content"><span data-role="recommend-description-snippet"
+                          class="line-truncate" data-line-truncate="5">Another year has passed, and the 5th OITM has
+                          finished. OITM is an IT …</span></div>
+                    </div>
+                  </div>
+                  <div class="recommend-post post-5" id="recommend-link-organic-8923276044" data-role="recommended-post"
+                    data-link="https://budavariam.github.io/posts/2021/12/12/starschema-hackathon-2021/" tabindex="0">
+                    <header class="recommend-post-header">
+                      <div class="recommend-image-wrapper"><img
+                          src="//c.disquscdn.com/get?url=https%3A%2F%2Fbudavariam.github.io%2Fimages%2F2021-12-12-starschema-hackathon-2021%2Fcover.jpg&amp;key=iHt_gVmlz2hpBpY6Ix5s5w&amp;h=200"
+                          alt="Starschema Hackathon 2021" title="Starschema Hackathon 2021"><span
+                          class="overlay"></span>
+                      </div>
+                      <h3 class="recommend-post-title" title="Starschema Hackathon 2021"><span
+                          data-role="recommend-thread-title" class="title line-truncate" data-line-truncate="3"
+                          data-content="Starschema Hackathon 2021">Starschema Hackathon
+                          2021</span></h3>
+                    </header>
+                    <ul class="meta">
+                      <li class="time">6 months ago</li>
+                    </ul>
+                    <div class="content-preview-wrapper">
+                      <div class="recommend-content"><span data-role="recommend-description-snippet"
+                          class="line-truncate" data-line-truncate="5">In Hungary, around the end of the year, we
+                          usually have some mandatory …</span></div>
+                    </div>
+                  </div>
+                  <div class="recommend-post post-6" id="recommend-link-organic-8953335587" data-role="recommended-post"
+                    data-link="https://budavariam.github.io/posts/2022/01/02/process-nix-pipe-with-a-script/"
+                    tabindex="0">
+                    <header class="recommend-post-header">
+                      <div class="recommend-image-wrapper"><img
+                          src="//c.disquscdn.com/get?url=https%3A%2F%2Fbudavariam.github.io%2Fimages%2F2022-01-02-process-nix-pipe%2Fcover.png&amp;key=Y2cztRntiZSsaazI7b85iQ&amp;h=200"
+                          alt="Process *nix pipe with a script" title="Process *nix pipe with a script"><span
+                          class="overlay"></span></div>
+                      <h3 class="recommend-post-title" title="Process *nix pipe with a script">
+                        <span data-role="recommend-thread-title" class="title line-truncate" data-line-truncate="3"
+                          data-content="Process *nix pipe with a script">Process *nix pipe
+                          with a script</span>
+                      </h3>
+                    </header>
+                    <ul class="meta">
+                      <li class="time">5 months ago</li>
+                    </ul>
+                    <div class="content-preview-wrapper">
+                      <div class="recommend-content"><span data-role="recommend-description-snippet"
+                          class="line-truncate" data-line-truncate="5">I came across situations in the past where I
+                          needed to modify a pipe just …</span></div>
+                    </div>
+                  </div>
+                  <div class="recommend-post post-7" id="recommend-link-organic-9090345639" data-role="recommended-post"
+                    data-link="https://budavariam.github.io/posts/2022/03/26/starschema-hackathon-2022/" tabindex="0">
+                    <header class="recommend-post-header">
+                      <div class="recommend-image-wrapper"><img
+                          src="//c.disquscdn.com/get?url=https%3A%2F%2Fbudavariam.github.io%2Fimages%2F2022-03-26-starschema-hackathon-2022%2Fcover.jpg&amp;key=64WxZdoPhs4plYGGyNPXew&amp;h=200"
+                          alt="Starschema Hackathon 2022" title="Starschema Hackathon 2022"><span
+                          class="overlay"></span>
+                      </div>
+                      <h3 class="recommend-post-title" title="Starschema Hackathon 2022"><span
+                          data-role="recommend-thread-title" class="title line-truncate" data-line-truncate="3"
+                          data-content="Starschema Hackathon 2022">Starschema Hackathon
+                          2022</span></h3>
+                    </header>
+                    <ul class="meta">
+                      <li class="time">3 months ago</li>
+                    </ul>
+                    <div class="content-preview-wrapper">
+                      <div class="recommend-content"><span data-role="recommend-description-snippet"
+                          class="line-truncate" data-line-truncate="5">New Year, new transferred working day.
+                          Luckily we had the opportunity to do …</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div><button class="scroll-btn scroll-right" data-action="scroll-right" tabindex="-1">❯</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

@@ -6,6 +6,9 @@
     {{- if .Content }}
     <section class="hg-entry-content">
         <p>{{- .Content | markdownify }}</p>
+        <p>
+            {{- partial "recommended.html" $ -}}
+        </p>
     </section>
     {{- end }}
     <footer class="entry-footer">
