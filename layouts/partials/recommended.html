@@ -17,12 +17,27 @@
     const moveLeft = (e) => scroll(1)
     const rightNav = document.querySelector('.scroll-right');
     rightNav.addEventListener('click', moveLeft);
-    
+
     const moveRight = (e) => scroll(-1)
     const leftNav = document.querySelector('.scroll-left');
     leftNav.addEventListener('click', moveRight);
   })
 </script>
+
+{{ range .Site.Taxonomies.featured.home }}
+<li>
+    <h1>HEYYY<a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+    <time>{{ .Date.Format "Mon, Jan 2, 2006" }}</time>
+</li>
+{{ end}}
+
+{{ range where site.RegularPages "Type" "in" site.Params.mainSections }}
+<li>
+    <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+    <time>{{ .Date.Format "Mon, Jan 2, 2006" }}</time>
+</li>
+{{ end }}
+
 
 <div class="recommendations-layout" data-tracking-area="recommendations-layout">
   <div class="post-list" style="height: auto; visibility: visible;">
@@ -34,138 +49,6 @@
                 tabindex="-1">❮</button>
               <div class="recommend-wrapper">
                 <div class="recommend-posts" data-role="recommend-posts">
-                  <div class="recommend-post post-0" data-role="recommended-post"
-                    data-link="https://budavariam.github.io/posts/2021/11/20/mssql-server-adventures/" tabindex="0">
-                    <header class="recommend-post-header">
-                      <div class="recommend-image-wrapper"><img
-                          src="//c.disquscdn.com/get?url=https%3A%2F%2Fbudavariam.github.io%2Fimages%2F2021-11-20-mssql-server-adventures%2Fcover.jpg&amp;key=HJNvR95InygDvzbG9yHT1Q&amp;h=200"
-                          alt="MSSQL Server Adventures" title="MSSQL Server Adventures"><span class="overlay"></span>
-                      </div>
-                      <h3 class="recommend-post-title" title="MSSQL Server Adventures"><span
-                          data-role="recommend-thread-title" class="title line-truncate" data-line-truncate="3"
-                          data-content="MSSQL Server Adventures">MSSQL
-                          Server Adventures</span></h3>
-                    </header>
-                    <ul class="meta">
-                      <li class="time">7 months ago</li>
-                    </ul>
-                    <div class="content-preview-wrapper">
-                      <div class="recommend-content"><span data-role="recommend-description-snippet"
-                          class="line-truncate" data-line-truncate="5">As I wrote in my last post, I’ve been working
-                          closely with Microsoft SQL …</span></div>
-                    </div>
-                  </div>
-                  <div class="recommend-post post-1" data-role="recommended-post"
-                    data-link="https://budavariam.github.io/posts/2022/04/04/organization-specific-git-config/"
-                    tabindex="0">
-                    <header class="recommend-post-header">
-                      <div class="recommend-image-wrapper"><img
-                          src="//c.disquscdn.com/get?url=https%3A%2F%2Fbudavariam.github.io%2Fimages%2F2022-04-04-organization-specific-git-config%2Fcover.png&amp;key=0BGG5T6wMfyz2wBnVOom9g&amp;h=200"
-                          alt="Organization Specific Git Config" title="Organization Specific Git Config"><span
-                          class="overlay"></span></div>
-                      <h3 class="recommend-post-title" title="Organization Specific Git Config">
-                        <span data-role="recommend-thread-title" class="title line-truncate" data-line-truncate="3"
-                          data-content="Organization Specific Git Config">Organization
-                          Specific Git Config</span>
-                      </h3>
-                    </header>
-                    <ul class="meta">
-                      <li class="time">2 months ago</li>
-                    </ul>
-                    <div class="content-preview-wrapper">
-                      <div class="recommend-content"><span data-role="recommend-description-snippet"
-                          class="line-truncate" data-line-truncate="5">I often need to present myself differently in
-                          git per project. When I work on a …</span></div>
-                    </div>
-                  </div>
-                  <div class="recommend-post post-3" data-role="recommended-post"
-                    data-link="https://budavariam.github.io/posts/2021/04/05/plotly-dash-development-tips/"
-                    tabindex="0">
-                    <header class="recommend-post-header">
-                      <div class="recommend-image-wrapper"><img
-                          src="//c.disquscdn.com/get?url=https%3A%2F%2Fbudavariam.github.io%2Fimages%2F2021-04-05-plotly-dash-development-tips%2Fcover.png&amp;key=AStn5TK8g8AxJ5waQYfcqA&amp;h=200"
-                          alt="Plotly Dash Development Tips" title="Plotly Dash Development Tips"><span
-                          class="overlay"></span>
-                      </div>
-                      <h3 class="recommend-post-title" title="Plotly Dash Development Tips"><span
-                          data-role="recommend-thread-title" class="title line-truncate" data-line-truncate="3"
-                          data-content="Plotly Dash Development Tips">Plotly Dash Development
-                          Tips</span></h3>
-                    </header>
-                    <ul class="meta">
-                      <li class="time">2 months ago</li>
-                    </ul>
-                    <div class="content-preview-wrapper">
-                      <div class="recommend-content"><span data-role="recommend-description-snippet"
-                          class="line-truncate" data-line-truncate="5">Last year I was working on some dash-plotly
-                          applications/dashboards. …</span></div>
-                    </div>
-                  </div>
-                  <div class="recommend-post post-4" data-role="recommended-post"
-                    data-link="https://budavariam.github.io/posts/2021/12/15/oitm-2021/" tabindex="0">
-                    <header class="recommend-post-header">
-                      <div class="recommend-image-wrapper"><img
-                          src="//c.disquscdn.com/get?url=https%3A%2F%2Fbudavariam.github.io%2Fimages%2F2021-12-15-oitm-2021%2Fcover.png&amp;key=_mBPVgIgd3rl0RtEfOgCmw&amp;h=200"
-                          alt="OITM 2021" title="OITM 2021"><span class="overlay"></span>
-                      </div>
-                      <h3 class="recommend-post-title" title="OITM 2021"><span data-role="recommend-thread-title"
-                          class="title line-truncate" data-line-truncate="3" data-content="OITM 2021">OITM 2021</span>
-                      </h3>
-                    </header>
-                    <ul class="meta">
-                      <li class="time">6 months ago</li>
-                    </ul>
-                    <div class="content-preview-wrapper">
-                      <div class="recommend-content"><span data-role="recommend-description-snippet"
-                          class="line-truncate" data-line-truncate="5">Another year has passed, and the 5th OITM has
-                          finished. OITM is an IT …</span></div>
-                    </div>
-                  </div>
-                  <div class="recommend-post post-5" data-role="recommended-post"
-                    data-link="https://budavariam.github.io/posts/2021/12/12/starschema-hackathon-2021/" tabindex="0">
-                    <header class="recommend-post-header">
-                      <div class="recommend-image-wrapper"><img
-                          src="//c.disquscdn.com/get?url=https%3A%2F%2Fbudavariam.github.io%2Fimages%2F2021-12-12-starschema-hackathon-2021%2Fcover.jpg&amp;key=iHt_gVmlz2hpBpY6Ix5s5w&amp;h=200"
-                          alt="Starschema Hackathon 2021" title="Starschema Hackathon 2021"><span
-                          class="overlay"></span>
-                      </div>
-                      <h3 class="recommend-post-title" title="Starschema Hackathon 2021"><span
-                          data-role="recommend-thread-title" class="title line-truncate" data-line-truncate="3"
-                          data-content="Starschema Hackathon 2021">Starschema Hackathon
-                          2021</span></h3>
-                    </header>
-                    <ul class="meta">
-                      <li class="time">6 months ago</li>
-                    </ul>
-                    <div class="content-preview-wrapper">
-                      <div class="recommend-content"><span data-role="recommend-description-snippet"
-                          class="line-truncate" data-line-truncate="5">In Hungary, around the end of the year, we
-                          usually have some mandatory …</span></div>
-                    </div>
-                  </div>
-                  <div class="recommend-post post-6" data-role="recommended-post"
-                    data-link="https://budavariam.github.io/posts/2022/01/02/process-nix-pipe-with-a-script/"
-                    tabindex="0">
-                    <header class="recommend-post-header">
-                      <div class="recommend-image-wrapper"><img
-                          src="//c.disquscdn.com/get?url=https%3A%2F%2Fbudavariam.github.io%2Fimages%2F2022-01-02-process-nix-pipe%2Fcover.png&amp;key=Y2cztRntiZSsaazI7b85iQ&amp;h=200"
-                          alt="Process *nix pipe with a script" title="Process *nix pipe with a script"><span
-                          class="overlay"></span></div>
-                      <h3 class="recommend-post-title" title="Process *nix pipe with a script">
-                        <span data-role="recommend-thread-title" class="title line-truncate" data-line-truncate="3"
-                          data-content="Process *nix pipe with a script">Process *nix pipe
-                          with a script</span>
-                      </h3>
-                    </header>
-                    <ul class="meta">
-                      <li class="time">5 months ago</li>
-                    </ul>
-                    <div class="content-preview-wrapper">
-                      <div class="recommend-content"><span data-role="recommend-description-snippet"
-                          class="line-truncate" data-line-truncate="5">I came across situations in the past where I
-                          needed to modify a pipe just …</span></div>
-                    </div>
-                  </div>
                   <div class="recommend-post post-7" data-role="recommended-post"
                     data-link="https://budavariam.github.io/posts/2022/03/26/starschema-hackathon-2022/" tabindex="0">
                     <header class="recommend-post-header">
