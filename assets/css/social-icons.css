@@ -1,0 +1,19 @@
+.social-icons {
+    padding: 12px 0;
+}
+.social-icons a {
+    border: none;
+}
+
+.social-icons a svg {
+    height: 35px;
+    width: 35px
+}
+
+.social-icons a:not(:last-of-type) {
+    margin-inline-end: 5px
+}
+
+.post-content .social-icons a {
+    box-shadow: none;
+}

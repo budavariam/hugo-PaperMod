@@ -31,26 +31,9 @@ html {
     margin-inline-start: auto;
 }
 
-.social-icons {
-    padding: 12px 0;
-}
-
 .dark .logo a img,
 .dark .social-icons {
     filter: brightness(0.7);
-}
-
-.social-icons a:not(:last-of-type) {
-    margin-inline-end: 5px
-}
-
-.social-icons a svg {
-    height: 35px;
-    width: 35px
-}
-
-.post-content .social-icons a {
-    box-shadow: none;
 }
 
 code {
