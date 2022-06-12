@@ -8,6 +8,10 @@
   gap: 1rem 2rem;
 }
 
+.project-metadata {
+  flex: 1;
+}
+
 .project-image {
   flex-shrink: 0;
   width: 200px;
