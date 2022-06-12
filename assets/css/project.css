@@ -21,10 +21,16 @@
 }
 
 .project-image > img {
-  object-fit: cover;
-  object-position: top;
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: 0.3s;
+  filter: grayscale(100%);
+}
+.project-image > img:hover {
+  transition: 0.3s;
+  filter: grayscale(0%);
 }
 
 @media (max-width: 500px) {
