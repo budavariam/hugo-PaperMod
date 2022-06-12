@@ -4,18 +4,45 @@
 
 .project {
   margin: 0.5em 0 1em 25px;
+  display: flex;
+  gap: 1rem 2rem;
+}
+
+.project-image {
+  flex-shrink: 0;
+  width: 200px;
+  height: 100px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.project-image > img {
+  object-fit: cover;
+  object-position: top;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 500px) {
+  /* below a certain size move the images on top of the text instead of next to it */
+  .project {
+    flex-direction: column;
+  }
+  .project > .project-image {
+      width: 100%;
+  }
 }
 
 .project-description {
     line-height: 1.3em;
 }
 
-.project-description a {
+.project-description > a {
     text-decoration: underline;
     font-size: smaller;
 }
 
-.project-source a {
+.project-source > a {
   margin-right: 5px;
 }
 
