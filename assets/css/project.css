@@ -60,3 +60,27 @@
   font-size: small;
   color: gray;
 }
+
+ul.project-legend {
+  list-style-type: none;
+}
+
+.project-legend a {
+  text-decoration: underline;
+}
+
+.legend-icon {
+  display: inline-block;
+  text-align: center;
+  width: 30px;
+  margin: 0 5px;
+}
+
+.project-source>a>i {
+  /* transition: 0.3s; */
+  /* filter: invert(0); */
+}
+.project-source>a:hover>i {
+  /* transition: 0.3s; */
+  filter: invert(0.3);
+}

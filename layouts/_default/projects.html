@@ -1,20 +1,29 @@
 {{ define "main" }}
 
 <header class="page-header">
-    <h1>{{ .Title }}</h1>
-    {{- if .Description }}
-    <div class="post-description">
-      {{ .Description }}
-    </div>
-    {{- end }}
-  </header>
+  <h1>{{ .Title }}</h1>
+  <div class="post-description">
+    <p>
+      Here are some of my personal projects most of which I created in my free time.
+    </p>
+    <p>
+      The meaning of their icons:
+    </p>
+    <ul class="project-legend">
+      <li><span class="legend-icon"><i class="fas fa-quote-right"></i></span> : I have a blogpost that mentions this project. </li>
+      <li><span class="legend-icon"><i class="fas fa-laptop"></i></span> : It has a live demo</li>
+      <li><span class="legend-icon"><i class="fab fa-github"></i></span> : Its code is available on <a href="https://github.com" target="_blank" aria-label="github source" title="Source on github">github</a></li>
+      <li><span class="legend-icon"><i class="fab fa-npm"></i></span> : It's on <a href="https://npmjs.com" aria-label="npm package" title="Package on npm" target="_blank">npm</a></li>
+    </ul>
+  </div>
+</header>
 
 {{ range $.Site.Data.projects.categories }}
 <h2>{{ .name }}</h2>
 <ul class="projects">
-    {{ range .projects }}
-        <li class="project">{{ partial "project.html" . }}</li>
-    {{ end }}
+  {{ range .projects }}
+  <li class="project">{{ partial "project.html" . }}</li>
+  {{ end }}
 </ul>
 {{ end }}
 
