@@ -93,3 +93,7 @@ body:not(.dark) .imgtheme-dark {
 body.dark .imgtheme-light {
     display: none !important;
 }
+
+.underlined {
+    text-decoration: underline;
+}

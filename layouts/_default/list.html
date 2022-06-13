@@ -4,10 +4,16 @@
 {{- partial "index_profile.html" . }}
 {{- else }} {{/* if not profileMode */}}
 
+{{ $term := .Data.Term}}
+
 {{- if not .IsHome | and .Title }}
 <header class="page-header">
   {{- partial "breadcrumbs.html" . }}
-  <h1>{{ .Title }}</h1>
+  {{- if $term }}
+    <h3>Posts <a class="underlined" href="/tags" target="_blank">tagged</a> with: {{ .Title }}</h3>
+    {{- else }}
+    <h1>{{ .Title }}</h1>
+    {{- end }}
   {{- if .Description }}
   <div class="post-description">
     {{ .Description }}
@@ -28,7 +34,6 @@
 {{- partial "home_info.html" . }}
 {{- end }}
 
-{{ $term := .Data.Term}}
 {{- range $index, $page := $paginator.Pages }}
 
 {{- $class := "post-entry" }}

@@ -66,6 +66,10 @@
     -webkit-line-clamp: 20;
 }
 
+.hg-entry-content a {
+    text-decoration: underline;
+}
+
 .entry-footer {
     color: var(--secondary);
     font-size: 13px
