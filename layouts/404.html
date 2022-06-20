@@ -1,3 +1,25 @@
-{{ define "main" }}
-<div class="not-found">404</div>
-{{ end  }}{{/* end main */}}
+{{ define "main"}}
+<main id="main">
+    <div class="not-found">
+        <h1 id="title">
+            <a href="/" target="_self"
+                title="Navigate to home">404&nbsp;&middot;&nbsp;<wbr/>Page&nbsp;Not&nbsp;Found</a>
+        </h1>
+        {{ $imagePath := printf "%v" ( printf "/%s/%s" "theme" "search.png" ) }}
+        {{ $image := resources.Get $imagePath }}
+        {{ $image := $image.Fit "920x277" }}
+        {{ if $image }}
+        <p>
+            <img class="notfound-cover" src="data:{{ $image.MediaType }};base64,{{ $image.Content | base64Encode }}">
+        </p>
+        <p class="notfound-action">
+            Such a shame...
+            I can't seem to find this page.
+            <br />
+            Please check the <a href="/search/" class="underlined">Search</a> box while I'm looking for it.
+        </p>
+        {{ end }}
+
+    </div>
+</main>
+{{ end }}

@@ -1,11 +1,14 @@
-.not-found {
-    position: absolute;
-    left: 0;
-    right: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 80%;
-    font-size: 160px;
-    font-weight: 700
+.not-found #title {
+    text-align: center;
+}
+
+.notfound-cover {
+    border-radius: 10px;
+    margin: 2em 0;
+}
+
+.notfound-action {
+    font-size: 1.5rem;
+    margin: 1em 0;
+    text-align: center;
 }
