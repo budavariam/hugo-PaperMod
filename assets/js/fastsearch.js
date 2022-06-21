@@ -49,8 +49,15 @@ function loadSearch() {
 }
 
 
-function itemGen(name, link) {
-    return `<li class="post-entry"><header class="entry-header">${name}&nbsp;»</header><a href="${link}" aria-label="${name}"></a></li>`
+function itemGen(name, link, summary) {
+    return `
+        <li class="post-entry">
+            <header class="entry-header">
+            ${name}&nbsp;»
+            </header>
+            <a href="${link}" aria-label="${name}"></a>
+            <div class="search-summary">${summary}</div>
+        </li>`
 }
 
 function activeToggle() {
@@ -86,7 +93,9 @@ function runSearch(rawTerm) {
         let resultSet = ''; // our results bucket
 
         for (let item in results) {
-            resultSet = resultSet + itemGen(results[item].item.title, results[item].item.permalink)
+            // console.log("results", results)
+            const data = results[item].item
+            resultSet = resultSet + itemGen(data.title, data.permalink, data.summary)
         }
 
         resList.innerHTML = resultSet;

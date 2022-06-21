@@ -55,6 +55,14 @@
     font-size: 24px
 }
 
+.search-summary {
+    font-size: 0.7rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: normal;
+}
+
 .hg-entry-content {
     margin: 8px 0;
     color: var(--secondary);

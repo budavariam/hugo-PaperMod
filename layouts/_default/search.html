@@ -22,7 +22,20 @@
 
 <div id="searchbox">
     <input id="searchInput" autofocus placeholder="{{.Title}} ↵" aria-label="search" type="search">
-    <ul id="searchResults" aria-label="search results"></ul>
+    <ul id="searchResults" aria-label="search results">
+        {{ $featured_posts := .Site.Taxonomies.featured.home}}
+        {{ range $index, $Post := $featured_posts }}
+        <li class="post-entry">
+            <header class="entry-header">
+            {{$Post.Name}}&nbsp;»
+            </header>
+            <a href="{{$Post.Permalink}}" aria-label="{{$Post.Name}}"></a>
+            {{ with $Post.Summary | plainify }}
+            <div class="search-summary">{{ . }}</div>
+            {{ end }}
+        </li>
+        {{ end }}
+    </ul>
 </div>
 
 {{- end }}{{/* end main */}}
