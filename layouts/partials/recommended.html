@@ -55,11 +55,7 @@
           actionCallback()
         } else {
           gtag('event', 'click_recommended', {
-            'event_callback': () => {
-              // Sends the event to Google Analytics and
-              // redireect the user once the hit is done.
-              createFunctionWithTimeout(actionCallback)
-            }
+            'event_callback': actionCallback
           });
         }
       });
