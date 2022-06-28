@@ -70,7 +70,7 @@
         }
     }
     function getPermission(key) {
-        const settings = localStorage.getItem("settings")
+        const settings = localStorage.getItem("blog-settings")
         if (!settings) {
             return false
         }
@@ -83,6 +83,7 @@
         return false
     }
 
+    // blog-settings={"errorTracking": true}
     const errorTrackingEnabled = !getPermission("errorTracking")
     errorTrackingEnabled && initLogRocket()
 </script>
