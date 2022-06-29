@@ -58,5 +58,6 @@ function addCopyButtonToDom(button, highlightDiv) {
     wrapper.appendChild(highlightDiv);
 }
 
-document.querySelectorAll(".highlight")
+// NOTE: div.highlight: github gist adds .highlight class to a table, hugo generates
+document.querySelectorAll("div.highlight")
     .forEach(highlightDiv => createCopyButton(highlightDiv));
