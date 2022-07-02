@@ -106,9 +106,10 @@ function runSearch(rawTerm) {
         resultsAvailable = false;
         resList.innerHTML = '';
     }
-    if (window.gtag) {
-        window.gtag("event", "search", { search_term: term });
-    }
+    // NOTE: fires too often
+    // if (window.gtag) {
+    //     window.gtag("event", "search", { search_term: term });
+    // }
 }
 
 sInput.addEventListener('search', function (e) {
