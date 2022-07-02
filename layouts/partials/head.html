@@ -82,7 +82,7 @@
 {{- if hugo.IsProduction | or (eq .Site.Params.env "production") }}
     <!-- google analytics v4 from hugo 0.8.2 -->
     <!-- template "partials/templates/google_analytics.html" . -->
-    <!-- template "_internal/google_analytics.html" . -->
+    {{- template "_internal/google_analytics.html" . }}
     <!-- google analytics v3 -->
     {{- template "partials/templates/google_analytics_async_v3.html" . }}
     <!-- template "_internal/google_analytics_async.html" . -->
