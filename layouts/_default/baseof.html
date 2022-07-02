@@ -13,6 +13,7 @@
 {{- print " dark" }}
 {{- end -}}
 " id="top">
+    {{- partial "partials/templates/google-tag-manager-body.html" $ }}
     {{- partialCached "header.html" . .Page}}
     {{- if (.Param "ShowToc") }}
         {{- partial "stickytoc.html" . }}
