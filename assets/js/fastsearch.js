@@ -36,7 +36,7 @@ function loadSearch() {
                             }
                         } catch (err) {
                             console.error("Failed to load initial searh term from url")
-                        } 
+                        }
                     }
                 }
             } else {
@@ -105,6 +105,9 @@ function runSearch(rawTerm) {
     } else {
         resultsAvailable = false;
         resList.innerHTML = '';
+    }
+    if (window.gtag) {
+        window.gtag("event", "search", { search_term: term });
     }
 }
 
