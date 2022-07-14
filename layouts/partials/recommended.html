@@ -46,7 +46,7 @@
     timeAgo.cancel();
 
     const posts = document.querySelectorAll('.recommend-post');
-    posts.forEach((post) => {
+    posts.forEach((post, i) => {
       function actionCallback() {
         window.open(post.dataset.link);
       }
@@ -55,7 +55,12 @@
           actionCallback()
         } else {
           gtag('event', 'click_recommended', {
-            'event_callback': actionCallback
+            'event_callback': actionCallback,
+            // recommended tags
+            'link_url': post.dataset.link,
+            // custom tags below 
+            'index': i, 
+            'total': posts.length,
           });
         }
       });
