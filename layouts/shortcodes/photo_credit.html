@@ -1,0 +1,8 @@
+<p><small>Cover Photo by
+<a target="_blank" {{- with .Get "artist-url" }} href="{{ . }}" {{ end -}}
+>{{- with .Get "artist-name" }}{{ . }}{{ end -}}</a>
+from
+<a target="_blank" {{- with .Get "img-url" }} href="{{ . }}" {{ end -}}
+>{{- with .Get "img-site" | default "Pexels" }}{{ . }}{{ end -}}</a>
+</small>
+</p>
